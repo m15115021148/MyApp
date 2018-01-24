@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_60px_in720p"
+    android:background="@color/pop_txt_bg"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_40px_in720p"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/_28px_in720p" />
+
+</LinearLayout>

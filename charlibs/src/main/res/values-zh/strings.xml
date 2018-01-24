@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ChatDemo</string>
+
+    <!-- 录音 -->
+    <string name="normal">按住 说话</string>
+    <string name="recording">松开 结束</string>
+    <string name="want_to_cancle">松开手指，取消发送</string>
+    <string name="shouzhishanghua">手指上滑，取消发送</string>
+    <string name="tooshort">录音时间过短</string>
+    <string name="toolong">录音时间过长</string>
+    <string name="result">"请在设置中检查是否开启权限！</string>
+    <string name="send">发送</string>
+    <string name="error">音频文件已损坏！</string>
+</resources>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/pop_txt_bg"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context="com.meigsmart.meigapp.activity.BlueSetPswActivity">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/include_title_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:textSize="@dimen/_32px_in720p"
+        android:textColor="@color/black"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/blue_set_old_psw"
+        android:layout_marginTop="@dimen/_40px_in720p"
+        app:layout_constraintTop_toBottomOf="@+id/include"
+        app:layout_constraintLeft_toLeftOf="@+id/oldPsw" />
+
+    <EditText
+        android:id="@+id/oldPsw"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="@dimen/_40px_in720p"
+        android:layout_marginRight="@dimen/_40px_in720p"
+        android:layout_marginTop="@dimen/_20px_in720p"
+        android:background="@drawable/login_et_bg"
+        android:gravity="center_vertical"
+        android:padding="@dimen/_10px_in720p"
+        android:textColor="@color/black"
+        android:inputType="textPassword"
+        android:hint="@string/blue_set_first_psw_hint"
+        android:textSize="@dimen/_28px_in720p"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        />
+
+
+    <TextView
+        android:textSize="@dimen/_32px_in720p"
+        android:textColor="@color/black"
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/blue_set_new_psw"
+        android:layout_marginTop="@dimen/_40px_in720p"
+        app:layout_constraintTop_toBottomOf="@+id/oldPsw"
+        app:layout_constraintLeft_toLeftOf="@+id/oldPsw" />
+
+    <EditText
+        android:id="@+id/newPsw"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="@dimen/_40px_in720p"
+        android:layout_marginRight="@dimen/_40px_in720p"
+        android:layout_marginTop="@dimen/_20px_in720p"
+        android:background="@drawable/login_et_bg"
+        android:gravity="center_vertical"
+        android:padding="@dimen/_10px_in720p"
+        android:inputType="textPassword"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_28px_in720p"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1"
+        />
+
+    <TextView
+        android:id="@+id/fix"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_80px_in720p"
+        android:layout_marginTop="@dimen/_80px_in720p"
+        android:background="@drawable/login_tv_bg"
+        android:gravity="center"
+        android:text="@string/blue_set_fix"
+        android:textColor="@drawable/bt_status_bg"
+        android:textSize="@dimen/_30px_in720p"
+        app:layout_constraintLeft_toLeftOf="@+id/newPsw"
+        app:layout_constraintRight_toRightOf="@+id/newPsw"
+        app:layout_constraintTop_toBottomOf="@+id/newPsw" />
+
+</android.support.constraint.ConstraintLayout>

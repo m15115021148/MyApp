@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/map_marker_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_20px_in720p"
+        android:layout_marginTop="@dimen/_40px_in720p"
+        android:singleLine="true"
+        android:text="@string/blue_set_geo_layout_name"
+        android:textColor="@color/black_dan"
+        android:textSize="@dimen/_30px_in720p" />
+
+    <TextView
+        android:id="@+id/radius"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_20px_in720p"
+        android:layout_marginTop="@dimen/_40px_in720p"
+        android:singleLine="true"
+        android:text="@string/blue_set_geo_layout_radius"
+        android:textColor="@color/black_dan"
+        android:textSize="@dimen/_30px_in720p" />
+
+</LinearLayout>

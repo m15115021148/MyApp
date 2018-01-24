@@ -1,0 +1,356 @@
+package com.meigsmart.meigapp.view;
+
+import android.content.Context;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewParent;
+
+/**
+ *
+ *侧滑删除 recyclerview
+ */
+public class LRecyclerView extends RecyclerView {
+    private LScrollListener mLScrollListener;
+    private View mEmptyView;
+
+    private final AdapterDataObserver mDataObserver = new DataObserver();
+    private float mLastY = -1;
+    private static final float DRAG_RATE = 2.0f;
+
+    private boolean mIsVpDragger;
+    private int mTouchSlop;
+    private float startY;
+    private float startX;
+    //scroll variables begin
+    /**
+     * 当前RecyclerView类型
+     */
+    protected LayoutManagerType layoutManagerType;
+
+    /**
+     * 最后一个的位置
+     */
+    private int[] lastPositions;
+
+
+    /**
+     * 触发在上下滑动监听器的容差距离
+     */
+    private static final int HIDE_THRESHOLD = 20;
+
+    /**
+     * 滑动的距离
+     */
+    private int mDistance = 0;
+
+    /**
+     * 是否需要监听控制
+     */
+    private boolean mIsScrollDown = true;
+
+    /**
+     * Y轴移动的实际距离（最顶部为0）
+     */
+    private int mScrolledYDistance = 0;
+
+    /**
+     * X轴移动的实际距离（最左侧为0）
+     */
+    private int mScrolledXDistance = 0;
+    //scroll variables end
+
+    public LRecyclerView(Context context) {
+        this(context, null);
+    }
+
+    public LRecyclerView(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    public LRecyclerView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        init();
+    }
+
+    private void init() {
+        mTouchSlop = ViewConfiguration.get(getContext().getApplicationContext()).getScaledTouchSlop();
+    }
+
+    @Override
+    public void setAdapter(Adapter adapter) {
+        super.setAdapter(adapter);
+        mDataObserver.onChanged();
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+    }
+
+    private class DataObserver extends AdapterDataObserver {
+        @Override
+        public void onChanged() {
+            Adapter<?> adapter = getAdapter();
+            if (adapter != null && mEmptyView != null) {
+                if (adapter.getItemCount() == 0) {
+                    mEmptyView.setVisibility(View.VISIBLE);
+                    LRecyclerView.this.setVisibility(View.GONE);
+                } else {
+                    mEmptyView.setVisibility(View.GONE);
+                    LRecyclerView.this.setVisibility(View.VISIBLE);
+                }
+            }
+        }
+
+        @Override
+        public void onItemRangeChanged(int positionStart, int itemCount) {
+            super.onItemRangeChanged(positionStart, itemCount);
+        }
+
+        @Override
+        public void onItemRangeInserted(int positionStart, int itemCount) {
+            super.onItemRangeInserted(positionStart, itemCount);
+        }
+
+        @Override
+        public void onItemRangeRemoved(int positionStart, int itemCount) {
+            super.onItemRangeRemoved(positionStart, itemCount);
+        }
+
+        @Override
+        public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
+            super.onItemRangeMoved(fromPosition, toPosition, itemCount);
+        }
+
+    }
+
+    /**
+     * 解决嵌套RecyclerView滑动冲突问题
+     *
+     * @param ev
+     * @return
+     */
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        int action = ev.getAction();
+        switch (action) {
+            case MotionEvent.ACTION_DOWN:
+                // 记录手指按下的位置
+                startY = ev.getY();
+                startX = ev.getX();
+                // 初始化标记
+                mIsVpDragger = false;
+                break;
+            case MotionEvent.ACTION_MOVE:
+                // 如果viewpager正在拖拽中，那么不拦截它的事件，直接return false；
+                if (mIsVpDragger) {
+                    return false;
+                }
+
+                // 获取当前手指位置
+                float endY = ev.getY();
+                float endX = ev.getX();
+                float distanceX = Math.abs(endX - startX);
+                float distanceY = Math.abs(endY - startY);
+                // 如果X轴位移大于Y轴位移，那么将事件交给viewPager处理。
+                if (distanceX > mTouchSlop && distanceX > distanceY) {
+                    mIsVpDragger = true;
+                    return false;
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_CANCEL:
+                // 初始化标记
+                mIsVpDragger = false;
+                break;
+        }
+        // 如果是Y轴位移大于X轴，事件交给swipeRefreshLayout处理。
+        return super.onInterceptTouchEvent(ev);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent ev) {
+        if (mLastY == -1) {
+            mLastY = ev.getRawY();
+        }
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                mLastY = ev.getRawY();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                final float deltaY = (ev.getRawY() - mLastY) / DRAG_RATE;
+                mLastY = ev.getRawY();
+                break;
+            default:
+                mLastY = -1; // reset
+                break;
+        }
+        return super.onTouchEvent(ev);
+    }
+
+    private int findMax(int[] lastPositions) {
+        int max = lastPositions[0];
+        for (int value : lastPositions) {
+            if (value > max) {
+                max = value;
+            }
+        }
+        return max;
+    }
+
+    /**
+     * set view when no content item
+     *
+     * @param emptyView visiable view when items is empty
+     */
+    public void setEmptyView(View emptyView) {
+        this.mEmptyView = emptyView;
+        mDataObserver.onChanged();
+    }
+
+    public void setLScrollListener(LScrollListener listener) {
+        mLScrollListener = listener;
+    }
+
+    public interface LScrollListener {
+
+        void onScrollUp();//scroll down to up
+
+        void onScrollDown();//scroll from up to down
+
+        void onScrolled(int distanceX, int distanceY);// moving state,you can get the move distance
+
+        void onScrollStateChanged(int state);
+    }
+
+    @Override
+    public void onScrolled(int dx, int dy) {
+        super.onScrolled(dx, dy);
+
+        int firstVisibleItemPosition = 0;
+        LayoutManager layoutManager = getLayoutManager();
+
+        if (layoutManagerType == null) {
+            if (layoutManager instanceof LinearLayoutManager) {
+                layoutManagerType = LayoutManagerType.LinearLayout;
+            } else if (layoutManager instanceof GridLayoutManager) {
+                layoutManagerType = LayoutManagerType.GridLayout;
+            } else if (layoutManager instanceof StaggeredGridLayoutManager) {
+                layoutManagerType = LayoutManagerType.StaggeredGridLayout;
+            } else {
+                throw new RuntimeException(
+                        "Unsupported LayoutManager used. Valid ones are LinearLayoutManager, GridLayoutManager and StaggeredGridLayoutManager");
+            }
+        }
+
+        switch (layoutManagerType) {
+            case LinearLayout:
+                firstVisibleItemPosition = ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition();
+                break;
+            case GridLayout:
+                firstVisibleItemPosition = ((GridLayoutManager) layoutManager).findFirstVisibleItemPosition();
+                break;
+            case StaggeredGridLayout:
+                StaggeredGridLayoutManager staggeredGridLayoutManager = (StaggeredGridLayoutManager) layoutManager;
+                if (lastPositions == null) {
+                    lastPositions = new int[staggeredGridLayoutManager.getSpanCount()];
+                }
+                staggeredGridLayoutManager.findLastVisibleItemPositions(lastPositions);
+                staggeredGridLayoutManager.findFirstCompletelyVisibleItemPositions(lastPositions);
+                firstVisibleItemPosition = findMax(lastPositions);
+                break;
+        }
+
+        // 根据类型来计算出第一个可见的item的位置，由此判断是否触发到底部的监听器
+        // 计算并判断当前是向上滑动还是向下滑动
+        calculateScrollUpOrDown(firstVisibleItemPosition, dy);
+        // 移动距离超过一定的范围，我们监听就没有啥实际的意义了
+        mScrolledXDistance += dx;
+        mScrolledYDistance += dy;
+        mScrolledXDistance = (mScrolledXDistance < 0) ? 0 : mScrolledXDistance;
+        mScrolledYDistance = (mScrolledYDistance < 0) ? 0 : mScrolledYDistance;
+        if (mIsScrollDown && (dy == 0)) {
+            mScrolledYDistance = 0;
+        }
+        //Be careful in here
+        if (null != mLScrollListener) {
+            mLScrollListener.onScrolled(mScrolledXDistance, mScrolledYDistance);
+        }
+
+    }
+
+    @Override
+    public void onScrollStateChanged(int state) {
+        super.onScrollStateChanged(state);
+        if (mLScrollListener != null) {
+            mLScrollListener.onScrollStateChanged(state);
+        }
+    }
+
+    /**
+     * 计算当前是向上滑动还是向下滑动
+     */
+    private void calculateScrollUpOrDown(int firstVisibleItemPosition, int dy) {
+        if (null != mLScrollListener) {
+            if (firstVisibleItemPosition == 0) {
+                if (!mIsScrollDown) {
+                    mIsScrollDown = true;
+                    mLScrollListener.onScrollDown();
+                }
+            } else {
+                if (mDistance > HIDE_THRESHOLD && mIsScrollDown) {
+                    mIsScrollDown = false;
+                    mLScrollListener.onScrollUp();
+                    mDistance = 0;
+                } else if (mDistance < -HIDE_THRESHOLD && !mIsScrollDown) {
+                    mIsScrollDown = true;
+                    mLScrollListener.onScrollDown();
+                    mDistance = 0;
+                }
+            }
+        }
+
+        if ((mIsScrollDown && dy > 0) || (!mIsScrollDown && dy < 0)) {
+            mDistance += dy;
+        }
+    }
+
+    public enum LayoutManagerType {
+        LinearLayout,
+        StaggeredGridLayout,
+        GridLayout
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        //解决LRecyclerView与CollapsingToolbarLayout滑动冲突的问题
+        AppBarLayout appBarLayout = null;
+        ViewParent p = getParent();
+        while (p != null) {
+            if (p instanceof CoordinatorLayout) {
+                break;
+            }
+            p = p.getParent();
+        }
+        if (p instanceof CoordinatorLayout) {
+            CoordinatorLayout coordinatorLayout = (CoordinatorLayout) p;
+            final int childCount = coordinatorLayout.getChildCount();
+            for (int i = childCount - 1; i >= 0; i--) {
+                final View child = coordinatorLayout.getChildAt(i);
+                if (child instanceof AppBarLayout) {
+                    break;
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/clientL"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_90px_in720p"
+        android:layout_alignParentTop="true"
+        android:background="@color/red_dan"
+        android:gravity="center"
+        android:text="@string/main_device_list"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_30px_in720p" />
+
+    <com.meigsmart.meigapp.view.LRecyclerView
+        android:id="@+id/clientListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tv2"
+        android:layout_below="@+id/clientL"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+
+    <TextView
+        android:id="@+id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tv2"
+        android:layout_below="@+id/clientL"
+        android:gravity="center"
+        android:text="@string/main_device_no_data"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/_28px_in720p"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_2px_in720p"
+        android:layout_above="@+id/clientAdd"
+        android:background="@color/pop_txt_bg" />
+
+    <TextView
+        android:id="@+id/clientAdd"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_90px_in720p"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:text="@string/main_bing_device"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_30px_in720p" />
+
+</RelativeLayout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/leftLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_300px_in720p"
+        android:background="@color/red_dan">
+
+        <ImageView
+            android:id="@+id/imgHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_40px_in720p"
+            android:background="@drawable/app_register_status_bg" />
+
+        <ImageView
+            android:id="@+id/appQr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/_20px_in720p"
+            android:background="@drawable/app_cr_bg" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imgHeader"
+            android:layout_alignLeft="@+id/userName"
+            android:layout_marginBottom="@dimen/_20px_in720p"
+            android:layout_toRightOf="@+id/imgHeader"
+            android:background="@drawable/app_content_bg" />
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_30px_in720p"
+            android:layout_marginRight="@dimen/_20px_in720p"
+            android:layout_toRightOf="@+id/imgHeader"
+            android:drawablePadding="@dimen/_10px_in720p"
+            android:drawableRight="@drawable/edit2"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_32px_in720p" />
+
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:listSelector="#00000000"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+
+    <LinearLayout
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:id="@+id/deviceLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:background="@color/pop_txt_bg"
+            android:text="@string/main_binding_device_title"
+            android:textSize="@dimen/_30px_in720p"
+            android:textColor="@color/black_dan"
+            android:paddingLeft="@dimen/_20px_in720p"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:layout_height="@dimen/_80px_in720p" />
+
+        <ListView
+            android:id="@+id/deviceListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:listSelector="#00000000"
+            android:overScrollMode="never"
+            android:scrollbars="none" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.meigsmart.meigapp.activity.HomePagerActivity">
+
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_90px_in720p"
+        android:layout_alignParentTop="true"
+        android:background="@color/red_dan">
+
+        <TextView
+            android:background="@drawable/meiglink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_20px_in720p"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_40px_in720p"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+        <LinearLayout
+            android:id="@+id/msgLayout"
+            android:layout_width="@dimen/_100px_in720p"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical|right">
+
+            <ImageView
+                android:layout_width="@dimen/_48px_in720p"
+                android:layout_height="@dimen/_48px_in720p"
+                android:layout_marginRight="@dimen/_20px_in720p"
+                android:background="@drawable/message" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/errorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80px_in720p"
+        android:background="@color/error"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20px_in720p"
+            android:background="@drawable/error" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20px_in720p"
+            android:text="@string/home_pager_error_hint"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/_30px_in720p" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/tabLayout" />
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_120px_in720p"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/tablayout_bg"
+            app:tabIndicatorHeight="0dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

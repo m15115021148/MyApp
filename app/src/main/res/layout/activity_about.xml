@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pop_txt_bg"
+    android:orientation="vertical"
+    tools:context="com.meigsmart.meigapp.activity.AboutActivity">
+
+    <include
+        layout="@layout/include_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--暂时不用-->
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:listSelector="#00000000"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_400px_in720p"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/_150px_in720p"
+            android:layout_height="@dimen/_150px_in720p"
+            android:layout_marginTop="@dimen/_60px_in720p"
+            android:background="@drawable/about_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20px_in720p"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_32px_in720p"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10px_in720p"
+            android:textColor="@color/txt_hui"
+            android:textSize="@dimen/_28px_in720p" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/updateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_90px_in720p"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_20px_in720p"
+            android:text="@string/about_version_title" />
+
+        <ImageView
+            android:id="@+id/flagPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_10px_in720p"
+            android:layout_toRightOf="@+id/tv1"
+            android:background="@drawable/flag_red"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/newVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/_20px_in720p"
+            android:textColor="@color/txt_hui"
+            android:textSize="@dimen/_26px_in720p" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|bottom">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_20px_in720p"
+            android:text="@string/about_flag"
+            android:textColor="@color/txt_hui"
+            android:textSize="@dimen/_26px_in720p" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

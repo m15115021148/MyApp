@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pop_txt_bg"
+    android:orientation="vertical"
+    tools:context="com.meigsmart.meigapp.activity.BlueSetApnActivity">
+
+    <include
+        layout="@layout/include_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/layoutEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            layout="@layout/include_blue_empty_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/BlueSetApnTextViewStyle"
+            android:layout_marginTop="@dimen/_40px_in720p"
+            android:text="@string/blue_set_apn_layout_profile_name"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/profileName"
+            style="@style/BlueSetApnEditTextStyle"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/textView1"
+            style="@style/BlueSetApnTextViewStyle"
+            android:text="@string/blue_set_apn_layout_apn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <EditText
+            android:id="@+id/apn"
+            style="@style/BlueSetApnEditTextStyle"
+            app:layout_constraintBottom_toBottomOf="@+id/textView1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView1"
+            app:layout_constraintTop_toTopOf="@+id/textView1" />
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/BlueSetApnTextViewStyle"
+            android:text="@string/blue_set_apn_layout_auth_type"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+        <EditText
+            android:id="@+id/auth_type"
+            style="@style/BlueSetApnEditTextStyle"
+            android:focusable="false"
+            android:hint="@string/blue_set_apn_hint_content"
+            app:layout_constraintBottom_toBottomOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/BlueSetApnTextViewStyle"
+            android:text="@string/blue_set_apn_layout_user_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <EditText
+            android:id="@+id/user_name"
+            style="@style/BlueSetApnEditTextStyle"
+            app:layout_constraintBottom_toBottomOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView3"
+            app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/textView4"
+            style="@style/BlueSetApnTextViewStyle"
+            android:text="@string/blue_set_apn_layout_password"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <EditText
+            android:id="@+id/password"
+            style="@style/BlueSetApnEditTextStyle"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toBottomOf="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/BlueSetApnTextViewStyle"
+            android:text="@string/blue_set_apn_layout_protocol"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <EditText
+            android:id="@+id/protocol"
+            style="@style/BlueSetApnEditTextStyle"
+            android:focusable="false"
+            android:hint="@string/blue_set_apn_hint_content"
+            app:layout_constraintBottom_toBottomOf="@+id/textView5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView5"
+            app:layout_constraintTop_toTopOf="@+id/textView5" />
+
+        <TextView
+            android:id="@+id/textView6"
+            style="@style/BlueSetApnTextViewStyle"
+            android:layout_width="@dimen/_280px_in720p"
+            android:text="@string/blue_set_apn_layout_ipv4_primary_dns"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <EditText
+            android:id="@+id/ipv4_primary_dns"
+            style="@style/BlueSetApnEditTextStyle"
+            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView6"
+            app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+        <TextView
+            android:id="@+id/textView7"
+            style="@style/BlueSetApnTextViewStyle"
+            android:layout_width="@dimen/_280px_in720p"
+            android:text="@string/blue_set_apn_layout_ipv4_secondary_dns"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <EditText
+            android:id="@+id/ipv4_secondary_dns"
+            style="@style/BlueSetApnEditTextStyle"
+            app:layout_constraintBottom_toBottomOf="@+id/textView7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView7"
+            app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+        <TextView
+            android:id="@+id/textView8"
+            style="@style/BlueSetApnTextViewStyle"
+            android:layout_width="@dimen/_280px_in720p"
+            android:text="@string/blue_set_apn_layout_ipv6_primary_dns"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <EditText
+            android:id="@+id/ipv6_primary_dns"
+            style="@style/BlueSetApnEditTextStyle"
+            app:layout_constraintBottom_toBottomOf="@+id/textView8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView8"
+            app:layout_constraintTop_toTopOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/textView9"
+            style="@style/BlueSetApnTextViewStyle"
+            android:layout_width="@dimen/_280px_in720p"
+            android:text="@string/blue_set_apn_layout_ipv6_secondary_dns"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <EditText
+            android:id="@+id/ipv6_secondary_dns"
+            style="@style/BlueSetApnEditTextStyle"
+            app:layout_constraintBottom_toBottomOf="@+id/textView9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView9"
+            app:layout_constraintTop_toTopOf="@+id/textView9" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

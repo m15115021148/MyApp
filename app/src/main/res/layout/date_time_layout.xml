@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:openxu="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/date_time_bg">
+
+
+        <com.meigsmart.meigapp.view.CustomCalendar
+            android:id="@+id/cal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+
+            openxu:mCurrentBg="#6E6E6E"
+            openxu:mCurrentBgDashPath="@array/customCalendar_currentDay_bg_DashPath"
+            openxu:mCurrentBgStrokeWidth="1.5dip"
+
+            openxu:mLineSpac="12dip"
+            openxu:mMonthRowL="@drawable/custom_calendar_row_left"
+            openxu:mMonthRowR="@drawable/custom_calendar_row_right"
+            openxu:mMonthRowSpac="50dp"
+
+            openxu:mMonthSpac="10dip"
+            openxu:mSelectBg="#fe7f5c"
+            openxu:mSelectRadius="15dip"
+            openxu:mSelectTextColor="#ffffff"
+            openxu:mSelectWeekTextColor="#f67633"
+            openxu:mTextColorDay="#686768"
+            openxu:mTextColorMonth="#4b4b4b"
+            openxu:mTextColorPreFinish="#fc7451"
+
+            openxu:mTextColorPreNull="#cecdcd"
+            openxu:mTextColorPreUnFinish="#60ba8d"
+            openxu:mTextColorWeek="#9e9e9d"
+
+            openxu:mTextSizeDay="17sp"
+            openxu:mTextSizeMonth="18sp"
+            openxu:mTextSizePre="10sp"
+            openxu:mTextSizeWeek="15sp"
+            openxu:mTextSpac="8dip" />
+    </LinearLayout>
+</LinearLayout>

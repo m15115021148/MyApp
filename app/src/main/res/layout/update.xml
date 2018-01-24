@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="@dimen/_500px_in720p"
+        android:layout_height="@dimen/_650px_in720p"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_350px_in720p"
+            android:background="@color/red_dan">
+
+            <ImageView
+                android:layout_width="@dimen/_150px_in720p"
+                android:layout_height="@dimen/_150px_in720p"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_60px_in720p"
+                android:background="@drawable/app_logo_bg" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80px_in720p"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/about_notify_new_version"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_25px_in720p" />
+
+                <TextView
+                    android:id="@+id/download_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_25px_in720p" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_25px_in720p"
+                    android:text="@string/about_notify_size"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_25px_in720p" />
+
+                <TextView
+                    android:id="@+id/download_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_25px_in720p" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_20px_in720p"
+                android:layout_marginTop="@dimen/_40px_in720p"
+                android:text="@string/about_notify_down_title"
+                android:textColor="#333333"
+                android:textSize="@dimen/_30px_in720p" />
+
+            <ProgressBar
+                android:id="@+id/progressbar1"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="@dimen/_400px_in720p"
+                android:layout_height="5dp"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                android:max="100"
+                android:progress="0" />
+
+            <TextView
+                android:id="@+id/currentPos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#333333" />
+
+            <TextView
+                android:id="@+id/cancel"
+                android:layout_width="@dimen/_300px_in720p"
+                android:layout_height="@dimen/_60px_in720p"
+                android:layout_marginBottom="@dimen/_30px_in720p"
+                android:layout_marginTop="@dimen/_40px_in720p"
+                android:background="@drawable/update_down_bg"
+                android:gravity="center"
+                android:text="@string/about_notify_update"
+                android:textColor="@color/red_dan"
+                android:textSize="@dimen/_28px_in720p" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

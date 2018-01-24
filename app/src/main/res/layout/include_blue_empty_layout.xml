@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/noData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_160px_in720p"
+        android:gravity="center"
+        android:text="@string/blue_device_status_no_data"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/_30px_in720p" />
+
+    <TextView
+        android:id="@+id/reload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_200px_in720p"
+        android:text="@string/blue_device_status_reload"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_32px_in720p"
+        android:visibility="gone" />
+
+</LinearLayout>

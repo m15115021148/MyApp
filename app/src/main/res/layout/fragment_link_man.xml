@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/createGroup"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100px_in720p"
+                android:paddingLeft="@dimen/_20px_in720p"
+                android:paddingRight="@dimen/_20px_in720p">
+
+                <ImageView
+                    android:id="@+id/img1"
+                    android:layout_width="@dimen/_60px_in720p"
+                    android:layout_height="@dimen/_60px_in720p"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/created_group" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_20px_in720p"
+                    android:layout_toRightOf="@+id/img1"
+                    android:text="@string/fragment_linkman_created_group"
+                    android:textColor="@color/black_dan"
+                    android:textSize="@dimen/_28px_in720p" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/my_34" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_2px_in720p"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/pop_txt_bg" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/bindingDevice"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100px_in720p"
+                android:paddingLeft="@dimen/_20px_in720p"
+                android:paddingRight="@dimen/_20px_in720p">
+
+                <ImageView
+                    android:id="@+id/img2"
+                    android:layout_width="@dimen/_60px_in720p"
+                    android:layout_height="@dimen/_60px_in720p"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/binding_device" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/_20px_in720p"
+                    android:layout_toRightOf="@+id/img2"
+                    android:text="@string/fragment_linkman_binding_device"
+                    android:textColor="@color/black_dan"
+                    android:textSize="@dimen/_28px_in720p" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/my_34" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_2px_in720p"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/pop_txt_bg" />
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/RecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                android:scrollbars="none" />
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

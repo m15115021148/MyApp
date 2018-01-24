@@ -1,0 +1,377 @@
+<resources>
+    <string name="app_name">MeiG Link</string>
+
+    <string name="scan_text">Insert qr code into the box and scan automatically</string>
+    <string name="scan_title">QR SCAN</string>
+
+    <string-array name="MainLeftData">
+        <item>Group Management</item>
+        <item>User Info</item>
+        <item>System Message</item>
+        <item>About</item>
+    </string-array>
+
+    <string-array name="SystemSetData">
+        <item>Group Invitation</item>
+        <item>Get Device Status</item>
+        <item>Get Log</item>
+        <item>Get APN Settings</item>
+        <item>Get Thresholds</item>
+        <item>Get GeoFence</item>
+        <item>SIP Setting</item>
+        <item>Server Url Setting</item>
+        <item>APN Setting</item>
+        <item>Thresholds Setting</item>
+        <item>GeoFence Setting</item>
+        <item>PIN Lock</item>
+        <item>PIN Unlock</item>
+        <item>PUK Unlock</item>
+        <item>Firmware Upgrade</item>
+    </string-array>
+
+    <string-array name="AboutData">
+        <item>System Update</item>
+        <item>APP Update</item>
+        <item>Firmware Update</item>
+        <item>System Information Management</item>
+        <item>App Introduction</item>
+    </string-array>
+
+    <string-array name="MenuData">
+        <item>Message</item>
+        <item>Link Man</item>
+        <item>Settings</item>
+    </string-array>
+
+    <string name="guide_first_hint">Step 1: click on the binding device</string>
+    <string name="guide_second_hint">Step 2: click the binding and enter the password</string>
+    <string name="guide_jump_over">Skip</string>
+
+    <string name="sure">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_ok">Delete success!</string>
+    <string name="delete">Delete</string>
+    <string name="empty_title">No Data this moment!</string>
+    <string name="clear_ok">Clear Done!</string>
+    <string name="loading_title">Loading…</string>
+    <string name="notify_ticker">Message</string>
+    <string name="notify_title">You have a new message</string>
+    <string name="http_error">Network request error</string>
+    <string name="http_noNet">Server Exception</string>
+    <string name="http_exception">Network exception, please try again later</string>
+    <string name="dialog_title">Warm Prompt</string>
+    <string name="dialog_hint_txt">Please Input…</string>
+    <string name="event">Event</string>
+    <string name="copy">Copy</string>
+    <string name="details">Details</string>
+
+    <string name="cancle">cancel</string>
+    <string name="title">Please select time</string>
+    <string name="commit">OK</string>
+    <string name="year">Year</string>
+    <string name="month">Month</string>
+    <string name="day">Day</string>
+    <string name="hour">Hour</string>
+    <string name="minute">Minute</string>
+
+    <string name="time_title">Date selection control</string>
+    <string name="select_date">Option date</string>
+    <string name="current_date">Current date</string>
+    <string name="select_time">Select time</string>
+    <string name="current_time">Current time</string>
+
+    <!--LoginActivity-->
+    <string name="login_title">User Setting</string>
+    <string name="login_name">Username：</string>
+    <string name="login_psw">Password：</string>
+    <string name="login_register">Registration</string>
+    <string name="login_phone_limits">Please modify permissions!</string>
+    <string name="login_name_limits">Username can not be NULL!</string>
+    <string name="login_fail">Login fails!</string>
+    <string name="login_come">Login succeeds!</string>
+
+    <!--HomePagerActivity-->
+    <string name="home_pager_exit_show">Press the exit again</string>
+    <string name="fragment_linkman_created_group">Created Group</string>
+    <string name="fragment_linkman_binding_device">Binding Device</string>
+    <string name="fragment_linkman_device_list">Device List</string>
+    <string name="home_pager_error_hint">Click Reregister</string>
+
+    <!--MainActivity-->
+    <string name="main_title">MeiG Link</string>
+    <string name="main_no_track">No history this moment!</string>
+    <string name="main_clear_track">Are you sure to delete all the history?</string>
+    <string name="main_select_device">Please choose the device!</string>
+    <string name="main_device_list">Device List</string>
+    <string name="main_device_no_data">No device this moment!</string>
+    <string name="main_bing_device">Binding Device</string>
+    <string name="main_no_login">Not Login</string>
+    <string name="main_binding_device_title">Device binding list</string>
+
+    <!--GroupListActivity-->
+    <string name="group_list_title">Group List</string>
+    <string name="group_list_create">Create</string>
+    <string name="group_list_delete_ok">Are you sure to delete?</string>
+
+    <!--MessageChatActivity-->
+    <string name="message_chat_msg_no">Content can not be empty!</string>
+    <string name="message_chart_set">Set</string>
+
+    <!--GroupSetActivity-->
+    <string name="group_set_update_name">Modify Group Name</string>
+    <string name="group_set_name_no">Group name can not be NULL!</string>
+    <string name="group_set_clear_ok">Are you sure to delete all？</string>
+    <string name="group_set_exit">Are you sure to exit？</string>
+    <string name="group_set_update_success">Modification succeeds!</string>
+    <string name="group_set_delete_ok">Are you sure to delete all?</string>
+    <string name="group_set_no_qr">It is not the right QR!!!</string>
+    <string name="group_set_name">Group Name</string>
+    <string name="group_set_clear_chat_data">Clear Chatting Records</string>
+    <string name="group_set_exit_group">Exit the Group</string>
+    <string name="group_set_track">Track</string>
+    <string name="group_set_delete_device_msg">Delete the device member, the equipment needs to restore the factory setting</string>
+
+    <!--UserAppInfoActivity-->
+    <string name="user_app_info_title">Personal Information</string>
+    <string name="user_app_info_layout_add">Add</string>
+    <string name="user_app_info_layout_hint">Scan qr code to add buddy</string>
+
+    <!--UserInfoActivity-->
+    <string name="user_info_title">Device Details</string>
+    <string name="user_info_binding">Binding</string>
+    <string name="user_info_add">Add to List</string>
+    <string name="user_info_error_msg">Information error!</string>
+    <string name="user_info_binding_success">Binding succeeds!</string>
+    <string name="user_info_add_success">Adding to list succeeds!</string>
+    <string name="user_info_add_error">Adding to list fails!</string>
+    <string name="user_info_device_psw">Please input password for this device!</string>
+    <string name="user_info_checkout_psw">Please input verification code! </string>
+    <string name="user_info_psw_no">Password can not be NULL!</string>
+    <string name="user_info_no_result">No results!</string>
+    <string name="user_info_track">Track Details</string>
+    <string name="user_info_event">Event List</string>
+    <string name="user_info_set">Bluetooth Settings</string>
+    <string name="user_info_fix_name">Modify Name</string>
+    <string name="user_info_fix_name_no">Name can not be NULL!</string>
+    <string name="user_info_dial_number">Whether to dial the number？</string>
+    <string name="user_info_layout_call">Call</string>
+
+    <!--SystemSetActivity-->
+    <string name="system_set_title">Bluetooth Setting</string>
+    <string name="system_set_psw_title">Set Password</string>
+    <string name="system_set_psw">Enter password</string>
+    <string name="system_set_psw_no_empty">The password cannot be empty</string>
+    <string name="system_set_conntect_fail">Bluetooth connection error</string>
+    <string name="system_set_open_blu_fail">Bluetooth fails to open</string>
+    <string name="system_set_server_url_title">Setting the server Url</string>
+    <string name="system_set_server_url_success">Setting Url success</string>
+    <string name="system_set_server_url_wrong">Setting Url failure</string>
+
+    <!--AboutActivity-->
+    <string name="about_title">About</string>
+    <string name="about_version_title">Version Updating</string>
+    <string name="about_flag">美格智能 Copy right</string>
+    <string name="about_update_title">Version Updating</string>
+    <string name="about_update_content">Updates</string>
+    <string name="about_update_cancel">Later to say again</string>
+    <string name="about_update_sure">Update now</string>
+    <string name="aboud_update_tips">The latest version is currently available, and no updates are required!</string>
+    <string name="about_server_title">Downloading</string>
+    <string name="about_server_ticker">Be Downloading</string>
+    <string name="about_notify_down_title">Downloading...</string>
+    <string name="about_notify_new_version">Latest Version:</string>
+    <string name="about_notify_size">size:</string>
+    <string name="about_notify_progress">Current Progress:</string>
+    <string name="about_notify_update">Background Updates</string>
+    <string name="about_down_error">Download the abnormal</string>
+
+    <!--CallActivity-->
+    <string name="call_incoming">From</string>
+    <string name="call_call">Calling...</string>
+    <string name="call_no_net">No Network Connection!</string>
+    <string name="call_result">This call is working now!Please wait a moment......</string>
+    <string name="call_no_find_user">No User Found!</string>
+    <string name="call_user_offline">The phone you called is offline!</string>
+    <string name="call_user_busy">The phone you called is busy!</string>
+    <string name="call_slide">Slide</string>
+    <string name="call_exception">Exception</string>
+    <string name="call_line">On line...</string>
+    <string name="call_unknown">Unknown</string>
+
+    <!--CreateGroupActivity-->
+    <string name="create_group_title">Create Group</string>
+    <string name="create_group_created">Create</string>
+    <string name="create_group_name">Group Names</string>
+    <string name="create_group_no">Group names can not be empty!</string>
+    <string name="create_group_success">Creating Successful</string>
+    <string name="create_group_fail">Create Failure</string>
+
+    <!--DeviceEventActivity-->
+    <string name="device_event_title">Event List</string>
+    <string name="device_event_no_data">NO Data</string>
+    <string name="device_event_type_1">tracking</string>
+    <string name="device_event_type_2">heartbeat</string>
+    <string name="device_event_type_3">shock</string>
+    <string name="device_event_type_4">geo_fence</string>
+    <string name="device_event_type_5">environment</string>
+    <string name="device_event_type_6">battery</string>
+    <string name="device_event_type_7">power_off</string>
+    <string name="device_event_type_8">help</string>
+    <string name="device_event_refresh_success">Refresh to complete</string>
+    <string name="device_event_load_more_success">Loading completed</string>
+    <string name="device_event_refresh_fail">Refresh the failure</string>
+    <string name="device_event_load_no_data">No more data</string>
+
+    <!--MapActivity-->
+    <string name="map_title">Track</string>
+    <string name="map_layout_name">Names：</string>
+    <string name="map_layout_time">Time：</string>
+    <string name="map_layout_altitude">Altitude：</string>
+    <string name="map_right_title">Filter</string>
+
+    <!--刷新 加载-->
+    <string name="loading_head_loosen">Loosen Refresh</string>
+    <string name="loading_head_pulldown">Pull to refresh</string>
+    <string name="loading_head_being">Is refreshing</string>
+    <string name="loading_foot_loosen">Loosen Load</string>
+    <string name="loading_foot_pullup">Pull on loading</string>
+    <string name="loading_foot_being">Loading</string>
+    <string name="loading_foot_finish">To load</string>
+
+    <!--QrOtherActivity-->
+    <string name="qr_title">Scanning Result</string>
+    <string name="qr_flag">The qr code has been identified</string>
+
+    <!--BlueSetPswActivityvity-->
+    <string name="device_set_name">Device Name：</string>
+    <string name="device_set_psw">Password：</string>
+    <string name="device_set_conn">Connect</string>
+    <string name="device_set_psw_no_empty">The password cannot be empty!</string>
+    <string name="device_set_no_support">This feature is not supported</string>
+    <string name="device_set_cancel_conn">Terminate the connection</string>
+    <string name="device_set_conn_fail">Connection fail</string>
+    <string name="blue_set_old_psw">Original Password:</string>
+    <string name="blue_set_new_psw">New Password:</string>
+    <string name="blue_set_first_psw_hint">Password for the first time, password can be empty!</string>
+    <string name="blue_set_fix">Modify</string>
+    <string name="blue_set_psw_title">Set Password</string>
+    <string name="blue_set_psw_success">Set password success</string>
+    <string name="blue_set_psw_wrong_password">Primitive password error</string>
+    <string name="blue_set_psw_wrong">Unknown error</string>
+
+    <!--BlueSetApnActivity-->
+    <string name="blue_set_apn_title">APN Setting</string>
+    <string name="blue_set_apn_layout_profile_name">Profile Name</string>
+    <string name="blue_set_apn_layout_apn">APN</string>
+    <string name="blue_set_apn_layout_auth_type">Auth Type</string>
+    <string name="blue_set_apn_layout_user_name">User Name</string>
+    <string name="blue_set_apn_layout_password">Password</string>
+    <string name="blue_set_apn_layout_protocol">Protocol</string>
+    <string name="blue_set_apn_layout_ipv4_primary_dns">Ipv4 primary dns</string>
+    <string name="blue_set_apn_layout_ipv4_secondary_dns">Ipv4 secondary dns</string>
+    <string name="blue_set_apn_layout_ipv6_primary_dns">Ipv6 primary dns</string>
+    <string name="blue_set_apn_layout_ipv6_secondary_dns">Ipv6 secondary dns</string>
+    <string name="blue_set_apn_right_name">Save</string>
+    <string name="blue_set_apn_hint_content">Please select</string>
+    <string name="blue_set_apn_success">Save successfully</string>
+    <string name="blue_set_apn_fail">Fail to save</string>
+    <string name="blue_get_apn_settings_title">Get APN Settings</string>
+
+    <!--BlueSetThresholdsActivity-->
+    <string name="blue_set_thresholds_title">Thresholds Setting</string>
+    <string name="blue_set_thresholds_layout_shock_x">Shock X</string>
+    <string name="blue_set_thresholds_layout_shock_y">Shock Y</string>
+    <string name="blue_set_thresholds_layout_shock_z">Shock Z</string>
+    <string name="blue_set_thresholds_layout_temperature_upper">Temperature upper</string>
+    <string name="blue_set_thresholds_layout_temperature_lower">Temperature lower</string>
+    <string name="blue_set_thresholds_layout_humidity_upper">Humidity upper</string>
+    <string name="blue_set_thresholds_layout_humidity_lower">Humidity lower</string>
+    <string name="blue_set_thresholds_layout_pressure_upper">Pressure upper</string>
+    <string name="blue_set_thresholds_layout_pressure_lower">Pressure lower</string>
+    <string name="blue_set_thresholds_no_empty">can not be empty</string>
+    <string name="blue_get_thresholds_title">Get Thresholds</string>
+
+    <!--BlueSetGeoFenceActivity-->
+    <string name="blue_set_geo_title">GeoFence Setting</string>
+    <string name="blue_set_geo_add">Add</string>
+    <string name="blue_set_geo_save_title">Save</string>
+    <string name="blue_set_geo_layout_name">Name</string>
+    <string name="blue_set_geo_layout_latitude">Latitude</string>
+    <string name="blue_set_geo_layout_longitude">Longitude</string>
+    <string name="blue_set_geo_layout_radius">Radius</string>
+    <string name="blue_set_geo_layout_index">Index</string>
+    <string name="blue_set_geo_layout_add_data">Please add data</string>
+    <string name="blue_get_geo_title">Get GeoFence</string>
+    <string name="blue_geo_layout_maquree_title">Long press select site, set up the fence</string>
+    <string name="blue_geo_layout_fix">Fix</string>
+    <string name="blue_geo_layout_delete">Delete</string>
+    <string name="blue_geo_empty_data">No positioning fence information</string>
+
+    <!--BlueGetLogActivity-->
+    <string name="blue_get_log_title">Report Log</string>
+    <string name="blue_get_log_getLog">Report</string>
+    <string name="blue_get_log_type">Log type</string>
+    <string name="blue_get_log_lines">Log the number of rows</string>
+    <string name="blue_get_log_hint">please choose</string>
+    <string name="blue_get_log_please_type">Please select type</string>
+    <string name="blue_get_log_no_empty_lines">The number of rows cannot be empty</string>
+    <string name="blue_get_log_success">Report success</string>
+    <string name="blue_get_log_number_more">Exceeds the maximum number of rows</string>
+
+    <!--BlueGetDeviceStatusActivity-->
+    <string name="blue_device_status_title">Device Status</string>
+    <string name="blue_device_status_firm">FIRM:</string>
+    <string name="blue_device_status_mac">MAC:</string>
+    <string name="blue_device_status_server_url">Server Url:</string>
+    <string name="blue_device_status_reg_status">Reg status:</string>
+    <string name="blue_device_status_call_status">Call status:</string>
+    <string name="blue_device_status_sim_card_status">SIM card status:</string>
+    <string name="blue_device_status_network_signal_level">Network signal level:</string>
+    <string name="blue_device_status_ipv4_status">IPV4 status:</string>
+    <string name="blue_device_status_ipv6_status">IPV6 status:</string>
+    <string name="blue_device_status_mcc">MCC:</string>
+    <string name="blue_device_status_mnc">MNC:</string>
+    <string name="blue_device_status_gps_status">GPS status:</string>
+    <string name="blue_device_status_gps_signal_level">GPS signal level:</string>
+    <string name="blue_device_status_current_latitude">Current latitude:</string>
+    <string name="blue_device_status_current_longitude">Current longitude:</string>
+    <string name="blue_device_status_voltage">Voltage:</string>
+    <string name="blue_device_status_batter_level">Batter level:</string>
+    <string name="blue_device_status_charger_status">Charger status:</string>
+    <string name="blue_device_status_group_status">Group status:</string>
+    <string name="blue_device_status_uuid">UUID:</string>
+    <string name="blue_device_status_general">General</string>
+    <string name="blue_device_status_calls">Calls</string>
+    <string name="blue_device_status_network">Network</string>
+    <string name="blue_device_status_gps">GPS</string>
+    <string name="blue_device_status_battery">Battery</string>
+    <string name="blue_device_status_group">Group</string>
+    <string name="blue_device_status_no_data">No Data</string>
+    <string name="blue_device_status_reload">Reload</string>
+
+    <!--BlueGroupInvitationActivity-->
+    <string name="blue_group_invitation_title">Group Invitation</string>
+    <string name="blue_group_invitation_invite">Invited</string>
+    <string name="blue_group_invitation_please_group">Please select group</string>
+    <string name="blue_group_invitation_success">Add group success</string>
+
+    <!--SystemMessageActivity-->
+    <string name="system_message_title">System Message</string>
+
+    <!--FilterActivity-->
+    <string name="filter_title">Filter</string>
+    <string name="filter_layout_start_time">Start Time</string>
+    <string name="filter_layout_end_time">End Time</string>
+    <string name="filter_layout_ok">Sure</string>
+    <string name="filter_please_start_time">Please select start time</string>
+    <string name="filter_please_end_time">Please select end time</string>
+    <string name="filter_stat_end_off">The end time cannot be less than the start time</string>
+
+    <!--BlueUpgradeFirmwareActivity-->
+    <string name="blue_upgrade_title">Firmware Upgrade</string>
+    <string name="blue_upgrade_layout_hint">Send instructions to upgrade the device via bluetooth. Please ensure that the device is fully charged and the signal is good. If the upgrade fails, please repeat the operation!</string>
+    <string name="blue_upgrade_upgrade">Upgrade</string>
+    <string name="blue_upgrade_success">Command sends success</string>
+    <string name="blue_connection_exception">Connection exception</string>
+
+</resources>

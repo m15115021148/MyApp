@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/user_app_info_detial_bg"
+    android:orientation="vertical"
+    android:padding="@dimen/_20px_in720p">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20px_in720p"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/blue_set_geo_layout_name" />
+
+        <EditText
+            android:id="@+id/name"
+            style="@style/BlueSetGeoEditTextStyle"
+            android:inputType="text" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20px_in720p"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/blue_set_geo_layout_radius" />
+
+        <EditText
+            android:id="@+id/radius"
+            style="@style/BlueSetGeoEditTextStyle" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_20px_in720p"
+        android:layout_marginTop="@dimen/_40px_in720p"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/cancel"
+            style="@style/BlueSetGeoTextViewStyle"
+            android:layout_marginRight="@dimen/_10px_in720p"
+            android:background="@drawable/login_tv_normal"
+            android:text="@string/cancel" />
+
+        <TextView
+            android:id="@+id/sure"
+            style="@style/BlueSetGeoTextViewStyle"
+            android:layout_marginLeft="@dimen/_10px_in720p"
+            android:background="@drawable/login_tv_select"
+            android:text="@string/sure"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>

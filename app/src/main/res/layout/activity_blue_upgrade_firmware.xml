@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pop_txt_bg"
+    android:orientation="vertical"
+    tools:context="com.meigsmart.meigapp.activity.BlueUpgradeFirmwareActivity">
+
+    <include
+        layout="@layout/include_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_20px_in720p"
+        android:layout_marginRight="@dimen/_20px_in720p"
+        android:layout_marginTop="@dimen/_40px_in720p"
+        android:gravity="center_vertical|top"
+        android:lineSpacingExtra="@dimen/_20px_in720p"
+        android:maxLines="5"
+        android:text="@string/blue_upgrade_layout_hint"
+        android:textColor="@color/txt_hui"
+        android:textSize="@dimen/_28px_in720p" />
+
+    <TextView
+        android:id="@+id/upgrade"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80px_in720p"
+        android:layout_marginLeft="@dimen/_20px_in720p"
+        android:layout_marginRight="@dimen/_20px_in720p"
+        android:layout_marginTop="@dimen/_200px_in720p"
+        android:background="@drawable/login_tv_bg"
+        android:gravity="center"
+        android:text="@string/blue_upgrade_upgrade"
+        android:textColor="@drawable/bt_status_bg"
+        android:textSize="@dimen/_30px_in720p" />
+
+</LinearLayout>

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.meigsmart.meigapp.activity.MainActivity">
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/mDrawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--主体布局-->
+        <RelativeLayout
+            android:id="@+id/mainLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_90px_in720p"
+                android:layout_alignParentTop="true"
+                android:background="@color/red_dan">
+
+                <RelativeLayout
+                    android:id="@+id/menu"
+                    android:layout_width="@dimen/_100px_in720p"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|left">
+
+                    <ImageView
+                        android:id="@+id/iv_1"
+                        android:layout_width="@dimen/_42px_in720p"
+                        android:layout_height="@dimen/_42px_in720p"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/_20px_in720p"
+                        android:background="@drawable/meng_17" />
+
+                    <ImageView
+                        android:id="@+id/registerStatus"
+                        android:layout_width="@dimen/_20px_in720p"
+                        android:layout_height="@dimen/_20px_in720p"
+                        android:layout_alignBottom="@+id/iv_1"
+                        android:layout_alignRight="@+id/iv_1"
+                        android:background="@drawable/register_statu" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/main_title"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_35px_in720p" />
+
+                <RelativeLayout
+                    android:id="@+id/clientsList"
+                    android:layout_width="@dimen/_100px_in720p"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical|right">
+
+                    <ImageView
+                        android:layout_width="@dimen/_48px_in720p"
+                        android:layout_height="@dimen/_48px_in720p"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/_20px_in720p"
+                        android:background="@drawable/index_user" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <com.baidu.mapapi.map.MapView
+                android:id="@+id/bmapView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/layout"
+                android:clickable="true" />
+
+            <ImageView
+                android:id="@+id/clearTrack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/layout"
+                android:layout_marginRight="@dimen/_30px_in720p"
+                android:layout_marginTop="@dimen/_30px_in720p"
+                android:background="@drawable/clear_track"
+                android:visibility="gone" />
+
+
+            <!--底部菜单-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_168px_in720p"
+                android:layout_alignParentBottom="true"
+                android:gravity="center_vertical|bottom"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/locationLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:background="@drawable/main_left_bg"
+                    android:gravity="center">
+
+                    <ImageView
+                        style="@style/MainBottomImgStyle"
+                        android:layout_marginTop="@dimen/_15px_in720p"
+                        android:background="@drawable/main_location_bg" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="@dimen/_2px_in720p"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_8px_in720p"
+                    android:background="@color/white" />
+
+                <RelativeLayout
+                    android:id="@+id/phoneLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/main_middle_bg"
+                    android:gravity="center">
+
+                    <ImageView
+                        style="@style/MainBottomImgStyle"
+                        android:src="@drawable/main_phone_bg" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="@dimen/_2px_in720p"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_8px_in720p"
+                    android:background="@color/white" />
+
+                <RelativeLayout
+                    android:id="@+id/messageLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:background="@drawable/main_right_bg"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/img1"
+                        style="@style/MainBottomImgStyle"
+                        android:layout_marginTop="@dimen/_15px_in720p"
+                        android:background="@drawable/main_message_bg" />
+
+                    <ImageView
+                        android:id="@+id/messagePoint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@+id/img1"
+                        android:layout_alignTop="@+id/img1"
+                        android:background="@drawable/main_red"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <!--左侧侧展开布局-->
+        <LinearLayout
+            android:layout_width="@dimen/_600px_in720p"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/include_main_left"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <!--右侧展开布局-->
+        <LinearLayout
+            android:layout_width="@dimen/_600px_in720p"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/include_main_right"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.DrawerLayout>
+</LinearLayout>

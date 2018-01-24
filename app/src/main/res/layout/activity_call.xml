@@ -1,0 +1,89 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/call_bg">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_150px_in720p"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_32px_in720p" />
+
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_20px_in720p"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_30px_in720p" />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/imgHeader"
+            android:layout_width="@dimen/_200px_in720p"
+            android:layout_height="@dimen/_200px_in720p"
+            android:layout_below="@+id/layout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_100px_in720p"
+            android:background="@drawable/call_head" />
+
+        <Chronometer
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgHeader"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_100px_in720p"
+            android:format="%s"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_35px_in720p"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/btn_hangup"
+            android:layout_width="@dimen/_120px_in720p"
+            android:layout_height="@dimen/_120px_in720p"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/_100px_in720p"
+            android:background="@drawable/call_canlce_bg"
+            android:onClick="hangupCall" />
+
+        <com.meigsmart.meigapp.view.CallToggleButton
+            android:id="@+id/slider_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_120px_in720p"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/_40px_in720p"
+            android:visibility="gone"
+            app:CallSliderView_backgroundColor="@color/pop_txt_bg"
+            app:CallSliderView_progressBackgroundColor="@color/lan_dan"
+            app:CallSliderView_text="@string/call_slide"
+            app:CallSliderView_textSize="@dimen/_28px_in720p" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

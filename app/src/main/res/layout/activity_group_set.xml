@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pop_txt_bg"
+    android:orientation="vertical"
+    tools:context="com.meigsmart.meigapp.activity.GroupSetActivity">
+
+    <include
+        layout="@layout/include_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:overScrollMode="never" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_40px_in720p"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/_20px_in720p"
+                android:paddingRight="@dimen/_20px_in720p">
+
+                <RelativeLayout
+                    android:id="@+id/groupName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_90px_in720p">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/group_set_name"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_30px_in720p" />
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/_20px_in720p"
+                        android:layout_toLeftOf="@+id/img"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_28px_in720p" />
+
+                    <ImageView
+                        android:id="@+id/img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/my_34" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_2px_in720p"
+                    android:background="@color/pop_txt_bg" />
+
+                <RelativeLayout
+                    android:id="@+id/groupTrack"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_90px_in720p">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/group_set_track"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_30px_in720p" />
+
+
+                    <ImageView
+                        android:id="@+id/img2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/my_34" />
+
+                </RelativeLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_2px_in720p"
+                    android:background="@color/pop_txt_bg" />
+
+                <RelativeLayout
+                    android:id="@+id/clear"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_90px_in720p">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/group_set_clear_chat_data"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_30px_in720p" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/exit"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80px_in720p"
+                android:layout_marginLeft="@dimen/_20px_in720p"
+                android:layout_marginRight="@dimen/_20px_in720p"
+                android:layout_marginTop="@dimen/_80px_in720p"
+                android:layout_marginBottom="@dimen/_80px_in720p"
+                android:background="@drawable/login_tv_bg"
+                android:gravity="center"
+                android:text="@string/group_set_exit_group"
+                android:textColor="@drawable/bt_status_bg"
+                android:textSize="@dimen/_30px_in720p" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

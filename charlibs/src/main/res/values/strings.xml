@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ChatDemo</string>
+
+    <!-- 录音 -->
+    <string name="normal">Talking after pressing the button</string>
+    <string name="recording">Undo to finish record</string>
+    <string name="want_to_cancle">Undo to cancel</string>
+    <string name="shouzhishanghua">Slide to cancel</string>
+    <string name="tooshort">Record duration is too short!</string>
+    <string name="toolong">Record duration is too long!</string>
+    <string name="result">"Please check permission for this APP！</string>
+    <string name="send">Send</string>
+    <string name="error">The audio file has been damaged！</string>
+</resources>

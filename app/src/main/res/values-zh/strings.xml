@@ -1,0 +1,378 @@
+<resources>
+    <string name="app_name">MeiG Link</string>
+
+    <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
+    <string name="scan_title">二维码扫描</string>
+
+    <string-array name="MainLeftData">
+        <item>群组管理</item>
+        <item>用户信息</item>
+        <item>系统消息</item>
+        <item>关于</item>
+    </string-array>
+
+    <string-array name="SystemSetData">
+        <item>群组邀请</item>
+        <item>获取设备状态</item>
+        <item>获取Log</item>
+        <item>获取APN设置</item>
+        <item>获取门限制</item>
+        <item>获取定位围栏</item>
+        <item>设置sip</item>
+        <item>设置服务器地址</item>
+        <item>设置APN</item>
+        <item>设置门限制</item>
+        <item>设置定位围栏</item>
+        <item>设置PIN上锁</item>
+        <item>解锁PIN</item>
+        <item>解锁PUK</item>
+        <item>固件升级</item>
+    </string-array>
+
+    <string-array name="AboutData">
+        <item>系统更新</item>
+        <item>APP更新</item>
+        <item>固件升级</item>
+        <item>系统消息管理</item>
+        <item>App介绍</item>
+    </string-array>
+
+    <string-array name="MenuData">
+        <item>消息</item>
+        <item>联系人</item>
+        <item>设置</item>
+    </string-array>
+
+    <string name="guide_first_hint">第一步：点击绑定设备</string>
+    <string name="guide_second_hint">第二步：点击绑定，输入密码</string>
+    <string name="guide_jump_over">跳过</string>
+
+    <string name="sure">确定</string>
+    <string name="cancel">取消</string>
+    <string name="delete_ok">删除成功</string>
+    <string name="delete">删除</string>
+    <string name="empty_title">暂无数据</string>
+    <string name="clear_ok">清除成功</string>
+    <string name="loading_title">加载中...</string>
+    <string name="notify_ticker">消息</string>
+    <string name="notify_title">您有一条新的消息</string>
+    <string name="http_error">网络请求出错</string>
+    <string name="http_noNet">服务器异常</string>
+    <string name="http_exception">网络异常,请稍后重试</string>
+    <string name="dialog_title">温馨提示</string>
+    <string name="dialog_hint_txt">请输入...</string>
+    <string name="event">事件</string>
+    <string name="copy">复制</string>
+    <string name="details">详情</string>
+
+    <string name="cancle">取消</string>
+    <string name="title">请选择时间</string>
+    <string name="commit">确定</string>
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
+    <string name="hour">时</string>
+    <string name="minute">分</string>
+
+    <string name="time_title">日期选择控件</string>
+    <string name="select_date">选择日期</string>
+    <string name="current_date">当前日期</string>
+    <string name="select_time">选择时间</string>
+    <string name="current_time">当前时间</string>
+
+    <!--LoginActivity-->
+    <string name="login_title">设置用户名</string>
+    <string name="login_name">用户名：</string>
+    <string name="login_psw">密码：</string>
+    <string name="login_register">注册</string>
+    <string name="login_phone_limits">请允许手机权限</string>
+    <string name="login_name_limits">用户名不能为空</string>
+    <string name="login_fail">登录失败</string>
+    <string name="login_come">进入</string>
+
+    <!--HomePagerActivity-->
+    <string name="home_pager_exit_show">再按一次退出</string>
+    <string name="fragment_linkman_created_group">创建群组</string>
+    <string name="fragment_linkman_binding_device">绑定设备</string>
+    <string name="fragment_linkman_device_list">设备列表</string>
+    <string name="home_pager_error_hint">点击重新注册</string>
+
+    <!--MainActivity-->
+    <string name="main_title">MeiG Link</string>
+    <string name="main_no_track">暂无轨迹信息</string>
+    <string name="main_clear_track">确定清除轨迹吗?</string>
+    <string name="main_select_device">请选择设备!</string>
+    <string name="main_device_list">设备列表</string>
+    <string name="main_device_no_data">暂无设备</string>
+    <string name="main_bing_device">绑定设备</string>
+    <string name="main_no_login">未登录</string>
+    <string name="main_binding_device_title">设备绑定列表</string>
+
+    <!--GroupListActivity-->
+    <string name="group_list_title">群组列表</string>
+    <string name="group_list_create">创建</string>
+    <string name="group_list_delete_ok">确定要删除吗?</string>
+
+    <!--MessageChatActivity-->
+    <string name="message_chat_msg_no">内容不能为空</string>
+    <string name="message_chart_set">设置</string>
+
+    <!--GroupSetActivity-->
+    <string name="group_set_update_name">修改群组名</string>
+    <string name="group_set_name_no">名称不能为空</string>
+    <string name="group_set_clear_ok">确定要清除吗？</string>
+    <string name="group_set_exit">确定要退出吗？</string>
+    <string name="group_set_update_success">修改成功</string>
+    <string name="group_set_delete_ok">确定要删除吗?</string>
+    <string name="group_set_no_qr">不是指定二维码</string>
+    <string name="group_set_name">群组名称</string>
+    <string name="group_set_clear_chat_data">清除聊天记录</string>
+    <string name="group_set_exit_group">退出群组</string>
+    <string name="group_set_track">轨迹</string>
+    <string name="group_set_delete_device_msg">删除设备成员，设备需要恢复出厂设置</string>
+
+    <!--UserAppInfoActivity-->
+    <string name="user_app_info_title">个人信息</string>
+    <string name="user_app_info_layout_add">添加</string>
+    <string name="user_app_info_layout_hint">扫描二维码，添加好友</string>
+    
+
+    <!--UserInfoActivity-->
+    <string name="user_info_title">设备详情</string>
+    <string name="user_info_binding">绑定</string>
+    <string name="user_info_add">添加</string>
+    <string name="user_info_error_msg">信息出错了</string>
+    <string name="user_info_binding_success">绑定成功</string>
+    <string name="user_info_add_success">添加成功</string>
+    <string name="user_info_add_error">添加异常</string>
+    <string name="user_info_device_psw">输入设备密码</string>
+    <string name="user_info_checkout_psw">输入校验密码</string>
+    <string name="user_info_psw_no">密码不能为空</string>
+    <string name="user_info_no_result">无结果</string>
+    <string name="user_info_track">轨迹详情</string>
+    <string name="user_info_event">事件列表</string>
+    <string name="user_info_set">蓝牙设置</string>
+    <string name="user_info_fix_name">修改名称</string>
+    <string name="user_info_fix_name_no">名称不能为空</string>
+    <string name="user_info_dial_number">是否拨打号码？</string>
+    <string name="user_info_layout_call">呼叫</string>
+
+    <!--SystemSetActivity-->
+    <string name="system_set_title">蓝牙设置</string>
+    <string name="system_set_psw_title">设置密码</string>
+    <string name="system_set_psw">输入密码</string>
+    <string name="system_set_psw_no_empty">密码不能为空</string>
+    <string name="system_set_conntect_fail">蓝牙连接出错</string>
+    <string name="system_set_open_blu_fail">蓝牙打开失败</string>
+    <string name="system_set_server_url_title">设置服务器Url</string>
+    <string name="system_set_server_url_success">设置Url成功</string>
+    <string name="system_set_server_url_wrong">设置Url失败</string>
+
+    <!--AboutActivity-->
+    <string name="about_title">关于</string>
+    <string name="about_version_title">版本更新</string>
+    <string name="about_flag">美格智能 版权所有</string>
+    <string name="about_update_title">版本更新</string>
+    <string name="about_update_content">更新内容</string>
+    <string name="about_update_cancel">稍后再说</string>
+    <string name="about_update_sure">立即更新</string>
+    <string name="aboud_update_tips">当前已是最新版本，无需更新!</string>
+    <string name="about_server_title">正在下载</string>
+    <string name="about_server_ticker">下载中</string>
+    <string name="about_notify_down_title">正在下载...</string>
+    <string name="about_notify_new_version">最新版本：</string>
+    <string name="about_notify_size">大小：</string>
+    <string name="about_notify_progress">当前进度：</string>
+    <string name="about_notify_update">后台更新</string>
+    <string name="about_down_error">下载异常</string>
+
+    <!--CallActivity-->
+    <string name="call_incoming">来自</string>
+    <string name="call_call">正在呼叫...</string>
+    <string name="call_no_net">无网络连接</string>
+    <string name="call_result">该呼叫未完全断开,请稍后再拔</string>
+    <string name="call_no_find_user">未找到用户</string>
+    <string name="call_user_offline">对方暂时不在线</string>
+    <string name="call_user_busy">对方正忙</string>
+    <string name="call_slide">滑动</string>
+    <string name="call_exception">异常</string>
+    <string name="call_line">通话中...</string>
+    <string name="call_unknown">未知</string>
+
+    <!--CreateGroupActivity-->
+    <string name="create_group_title">创建群组</string>
+    <string name="create_group_created">创建</string>
+    <string name="create_group_name">群组名称</string>
+    <string name="create_group_no">群组名不能为空!</string>
+    <string name="create_group_success">创建成功</string>
+    <string name="create_group_fail">创建失败</string>
+
+    <!--DeviceEventActivity-->
+    <string name="device_event_title">事件列表</string>
+    <string name="device_event_no_data">暂无数据</string>
+    <string name="device_event_type_1">位置上报（非休眠状态）</string>
+    <string name="device_event_type_2">位置上报（休眠状态）</string>
+    <string name="device_event_type_3">冲击事件</string>
+    <string name="device_event_type_4">位置上报（离开设定的区域）</string>
+    <string name="device_event_type_5">环境传感器超过阈值</string>
+    <string name="device_event_type_6">电量不足</string>
+    <string name="device_event_type_7">关机上报</string>
+    <string name="device_event_type_8">求救上报</string>
+    <string name="device_event_refresh_success">刷新完成</string>
+    <string name="device_event_load_more_success">加载完成</string>
+    <string name="device_event_refresh_fail">刷新失败</string>
+    <string name="device_event_load_no_data">暂无更多数据</string>
+
+    <!--MapActivity-->
+    <string name="map_title">轨迹</string>
+    <string name="map_layout_name">名称：</string>
+    <string name="map_layout_time">时间：</string>
+    <string name="map_layout_altitude">海拔：</string>
+    <string name="map_right_title">筛选</string>
+
+    <!--刷新 加载-->
+    <string name="loading_head_loosen">松开刷新</string>
+    <string name="loading_head_pulldown">下拉刷新</string>
+    <string name="loading_head_being">正在刷新</string>
+    <string name="loading_foot_loosen">松开加载</string>
+    <string name="loading_foot_pullup">上拉加载</string>
+    <string name="loading_foot_being">正在加载</string>
+    <string name="loading_foot_finish">加载完毕</string>
+
+    <!--QrOtherActivity-->
+    <string name="qr_title">扫描结果</string>
+    <string name="qr_flag">已识别到二维码内容</string>
+
+    <!--BlueSetPswActivity-->
+    <string name="device_set_name">设备名：</string>
+    <string name="device_set_psw">密码：</string>
+    <string name="device_set_conn">连接</string>
+    <string name="device_set_psw_no_empty">密码不能为空!</string>
+    <string name="device_set_no_support">不支持该功能</string>
+    <string name="device_set_cancel_conn">终止连接</string>
+    <string name="device_set_conn_fail">连接失败</string>
+    <string name="blue_set_old_psw">原始密码：</string>
+    <string name="blue_set_new_psw">新密码：</string>
+    <string name="blue_set_first_psw_hint">首次设置密码，密码可为空！</string>
+    <string name="blue_set_fix">修改</string>
+    <string name="blue_set_psw_title">设置密码</string>
+    <string name="blue_set_psw_success">设置密码成功</string>
+    <string name="blue_set_psw_wrong_password">原始密码错误</string>
+    <string name="blue_set_psw_wrong">未知错误</string>
+
+    <!--BlueSetApnActivity-->
+    <string name="blue_set_apn_title">设置APN</string>
+    <string name="blue_set_apn_layout_profile_name">配置名</string>
+    <string name="blue_set_apn_layout_apn">APN</string>
+    <string name="blue_set_apn_layout_auth_type">验证类型</string>
+    <string name="blue_set_apn_layout_user_name">用户名</string>
+    <string name="blue_set_apn_layout_password">密码</string>
+    <string name="blue_set_apn_layout_protocol">协议</string>
+    <string name="blue_set_apn_layout_ipv4_primary_dns">Ipv4 primary dns</string>
+    <string name="blue_set_apn_layout_ipv4_secondary_dns">Ipv4 secondary dns</string>
+    <string name="blue_set_apn_layout_ipv6_primary_dns">Ipv6 primary dns</string>
+    <string name="blue_set_apn_layout_ipv6_secondary_dns">Ipv6 secondary dns</string>
+    <string name="blue_set_apn_right_name">保存</string>
+    <string name="blue_set_apn_hint_content">请选择</string>
+    <string name="blue_set_apn_success">保存成功</string>
+    <string name="blue_set_apn_fail">保存失败</string>
+    <string name="blue_get_apn_settings_title">获取APN设置</string>
+
+    <!--BlueSetThresholdsActivity-->
+    <string name="blue_set_thresholds_title">设置门限制</string>
+    <string name="blue_set_thresholds_layout_shock_x">阈值冲击 X</string>
+    <string name="blue_set_thresholds_layout_shock_y">阈值冲击 Y</string>
+    <string name="blue_set_thresholds_layout_shock_z">阈值冲击 X</string>
+    <string name="blue_set_thresholds_layout_temperature_upper">最高温度</string>
+    <string name="blue_set_thresholds_layout_temperature_lower">最低温度</string>
+    <string name="blue_set_thresholds_layout_humidity_upper">最高湿度</string>
+    <string name="blue_set_thresholds_layout_humidity_lower">最低湿度</string>
+    <string name="blue_set_thresholds_layout_pressure_upper">最高压强</string>
+    <string name="blue_set_thresholds_layout_pressure_lower">最低压强</string>
+    <string name="blue_set_thresholds_no_empty">不能为空</string>
+    <string name="blue_get_thresholds_title">获取门限制</string>
+
+    <!--BlueSetGeoFenceActivity-->
+    <string name="blue_set_geo_title">设置定位围栏</string>
+    <string name="blue_set_geo_add">添加</string>
+    <string name="blue_set_geo_save_title">保存</string>
+    <string name="blue_set_geo_layout_name">名称</string>
+    <string name="blue_set_geo_layout_latitude">经度</string>
+    <string name="blue_set_geo_layout_longitude">纬度</string>
+    <string name="blue_set_geo_layout_radius">半径</string>
+    <string name="blue_set_geo_layout_index">指数</string>
+    <string name="blue_set_geo_layout_add_data">请添加数据</string>
+    <string name="blue_get_geo_title">获取定位围栏</string>
+    <string name="blue_geo_layout_maquree_title">长按选择定位点，设置围栏</string>
+    <string name="blue_geo_layout_fix">修改</string>
+    <string name="blue_geo_layout_delete">删除</string>
+    <string name="blue_geo_empty_data">暂无定位围栏信息</string>
+
+    <!--BlueGetLogActivity-->
+    <string name="blue_get_log_title">上报日志</string>
+    <string name="blue_get_log_getLog">上报</string>
+    <string name="blue_get_log_type">日志类型</string>
+    <string name="blue_get_log_lines">日志检索行数</string>
+    <string name="blue_get_log_hint">请选择</string>
+    <string name="blue_get_log_please_type">请选择类型</string>
+    <string name="blue_get_log_no_empty_lines">行数不能为空</string>
+    <string name="blue_get_log_success">上报成功</string>
+    <string name="blue_get_log_number_more">超出最大行数</string>
+
+    <!--BlueGetDeviceStatusActivity-->
+    <string name="blue_device_status_title">设备状态</string>
+    <string name="blue_device_status_firm">FIRM：</string>
+    <string name="blue_device_status_mac">MAC：</string>
+    <string name="blue_device_status_server_url">服务器地址：</string>
+    <string name="blue_device_status_reg_status">注册状态：</string>
+    <string name="blue_device_status_call_status">电话状态：</string>
+    <string name="blue_device_status_sim_card_status">SIM卡状态：</string>
+    <string name="blue_device_status_network_signal_level">网络信号等级：</string>
+    <string name="blue_device_status_ipv4_status">IPV4 状态：</string>
+    <string name="blue_device_status_ipv6_status">IPV6 状态：</string>
+    <string name="blue_device_status_mcc">MCC：</string>
+    <string name="blue_device_status_mnc">MNC：</string>
+    <string name="blue_device_status_gps_status">GPS状态：</string>
+    <string name="blue_device_status_gps_signal_level">GPS信号等级：</string>
+    <string name="blue_device_status_current_latitude">当前纬度：</string>
+    <string name="blue_device_status_current_longitude">当前经度：</string>
+    <string name="blue_device_status_voltage">电压：</string>
+    <string name="blue_device_status_batter_level">电池级别：</string>
+    <string name="blue_device_status_charger_status">充电状态：</string>
+    <string name="blue_device_status_group_status">群组状态：</string>
+    <string name="blue_device_status_uuid">UUID：</string>
+    <string name="blue_device_status_general">通用</string>
+    <string name="blue_device_status_calls"> 电话</string>
+    <string name="blue_device_status_network">网络</string>
+    <string name="blue_device_status_gps">GPS</string>
+    <string name="blue_device_status_battery">电池</string>
+    <string name="blue_device_status_group">群组</string>
+    <string name="blue_device_status_no_data">暂无数据</string>
+    <string name="blue_device_status_reload">重新加载</string>
+
+    <!--BlueGroupInvitationActivity-->
+    <string name="blue_group_invitation_title">群组邀请</string>
+    <string name="blue_group_invitation_invite">邀请</string>
+    <string name="blue_group_invitation_please_group">请选择群组</string>
+    <string name="blue_group_invitation_success">加组成功</string>
+
+    <!--SystemMessageActivity-->
+    <string name="system_message_title">系统消息</string>
+
+    <!--FilterActivity-->
+    <string name="filter_title">筛选</string>
+    <string name="filter_layout_start_time">开始时间</string>
+    <string name="filter_layout_end_time">终止时间</string>
+    <string name="filter_layout_ok">确认</string>
+    <string name="filter_please_start_time">请选择开始时间</string>
+    <string name="filter_please_end_time">请选择终止时间</string>
+    <string name="filter_stat_end_off">终止时间不能小于开始时间</string>
+
+    <!--BlueUpgradeFirmwareActivity-->
+    <string name="blue_upgrade_title">固件升级</string>
+    <string name="blue_upgrade_layout_hint">通过蓝牙发送指令升级设备，请确保设备电量充足，信号良好,如升级失败请重复操作!</string>
+    <string name="blue_upgrade_upgrade">升级</string>
+    <string name="blue_upgrade_success">指令发送成功</string>
+    <string name="blue_connection_exception">连接异常</string>
+
+</resources>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pop_txt_bg"
+    android:orientation="vertical"
+    tools:context="com.meigsmart.meigapp.activity.BlueGetDeviceStatusActivity">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/include_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40px_in720p" />
+
+                <TextView
+                    android:id="@+id/general"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_60px_in720p"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_20px_in720p"
+                    android:background="@drawable/login_et_bg"
+                    android:gravity="center"
+                    android:text="@string/blue_device_status_general"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_32px_in720p" />
+
+                <TextView
+                    android:id="@+id/firm"
+                    style="@style/BlueDeviceStatusTextViewStyle" />
+
+                <TextView
+                    android:id="@+id/mac"
+                    style="@style/BlueDeviceStatusTextViewStyle" />
+
+                <TextView
+                    android:id="@+id/server_url"
+                    style="@style/BlueDeviceStatusTextViewStyle"
+                    android:maxLines="2" />
+
+                <TextView
+                    android:id="@+id/calls"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_60px_in720p"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_20px_in720p"
+                    android:background="@drawable/login_et_bg"
+                    android:gravity="center"
+                    android:text="@string/blue_device_status_calls"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_32px_in720p" />
+
+                <TextView
+                    android:id="@+id/reg_status"
+                    style="@style/BlueDeviceStatusTextViewStyle" />
+
+                <TextView
+                    android:id="@+id/call_status"
+                    style="@style/BlueDeviceStatusTextViewStyle" />
+
+
+                <TextView
+                    android:id="@+id/network"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_60px_in720p"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_20px_in720p"
+                    android:background="@drawable/login_et_bg"
+                    android:gravity="center"
+                    android:text="@string/blue_device_status_network"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_32px_in720p" />
+
+                <TextView
+                    android:id="@+id/sim_card_status"
+                    style="@style/BlueDeviceStatusTextViewStyle" />
+
+                <TextView
+                    android:id="@+id/network_signal_level"
+                    style="@style/BlueDeviceStatusTextViewStyle" />
+
+                <TextView
+                    android:id="@+id/ipv4_status"
+                    style="@style/BlueDeviceStatusTextViewStyle" />
+
+                <TextView
+                    android:id="@+id/ipv6_status"
+                    style="@style/BlueDeviceStatusTextViewStyle" />
+
+                <TextView
+                    android:id="@+id/mcc"
+                    style="@style/BlueDeviceStatusTextViewStyle" />
+
+                <TextView
+                    android:id="@+id/mnc"
+                    style="@style/BlueDeviceStatusTextViewStyle" />
+
+                <TextView
+                    android:id="@+id/gps"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_60px_in720p"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_20px_in720p"
+                    android:background="@drawable/login_et_bg"
+                    android:gravity="center"
+                    android:text="@string/blue_device_status_gps"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_32px_in720p" />
+
+                <TextView
+                    android:id="@+id/gps_status"
+                    style="@style/BlueDeviceStatusTextViewStyle" />
+
+                <TextView
+                    android:id="@+id/gps_signal_level"
+                    style="@style/BlueDeviceStatusTextViewStyle" />
+
+                <TextView
+                    android:id="@+id/current_latitude"
+                    style="@style/BlueDeviceStatusTextViewStyle" />
+
+                <TextView
+                    android:id="@+id/current_longitude"
+                    style="@style/BlueDeviceStatusTextViewStyle" />
+
+                <TextView
+                    android:id="@+id/batter"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_60px_in720p"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_20px_in720p"
+                    android:background="@drawable/login_et_bg"
+                    android:gravity="center"
+                    android:text="@string/blue_device_status_battery"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_32px_in720p" />
+
+                <TextView
+                    android:id="@+id/voltage"
+                    style="@style/BlueDeviceStatusTextViewStyle" />
+
+                <TextView
+                    android:id="@+id/batter_level"
+                    style="@style/BlueDeviceStatusTextViewStyle" />
+
+                <TextView
+                    android:id="@+id/charger_status"
+                    style="@style/BlueDeviceStatusTextViewStyle" />
+
+                <TextView
+                    android:id="@+id/group"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_60px_in720p"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_20px_in720p"
+                    android:background="@drawable/login_et_bg"
+                    android:gravity="center"
+                    android:text="@string/blue_device_status_group"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_32px_in720p" />
+
+                <TextView
+                    android:id="@+id/group_status"
+                    style="@style/BlueDeviceStatusTextViewStyle" />
+
+                <TextView
+                    android:id="@+id/uuid"
+                    style="@style/BlueDeviceStatusTextViewStyle" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40px_in720p" />
+
+            <include
+                layout="@layout/include_blue_empty_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
