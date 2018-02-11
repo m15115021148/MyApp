@@ -185,7 +185,7 @@ public class SettingFragment extends BaseFragment implements View.OnClickListene
      * 版本更新
      */
     private void updateApp(){
-        HttpManager.getApiService().updateApp("1")
+        HttpManager.getApiService().updateApp(RequestCode.APP_KEY,RequestCode.APP_SECRET,MyApplication.getInstance().getVersionCode())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new BaseObserver<UpdateModel>() {

@@ -109,7 +109,7 @@ public interface ApiService {
     Observable<DeviceEventsListModel> getDeviceEventList(@Path("device_uuid") String device_uuid,@Query("pageNum") String page,@Body RequestBody requestBody);//7.2.获取设备事件
 
     @POST("ota/version.json")
-    Observable<UpdateModel> updateApp(@Query("code") String code);//app更新
+    Observable<UpdateModel> updateApp(@Query("appKey") String appKey,@Query("appSecret") String appSecret,@Query("ver") String ver);//app更新
 
     @POST("groups/{group_uuid}/candidates.json")
     Observable<GroupInvitationModel> groupInvitation(@Path("group_uuid") String group_uuid);//邀请加组

@@ -1,3 +1,10 @@
+//ndk 
+
+#NDK_HOME为安装路径
+export NDK_HOME=/workspace/android-ndk-r10e
+$NDK_HOME/build/tools/make-standalone-toolchain.sh --arch=arm --platform=android-21 --install-dir=$HOME/android-toolchain --toolchain=arm-linux-androideabi-4.9
+
+
 
 sudo apt-get remove cmake //卸载
 echo $PATH
@@ -131,6 +138,12 @@ cubic-read-log >log.log
 exit
 adb pull /log.log D:\Log
 
+
+//push
+adb root
+adb remount
+adb push xx.apk system/app
+
 adb shell 查看序列号 cubic_configs.h
 cmmd getcfg ro.core.serial_num
 
@@ -194,3 +207,23 @@ make install
 
 CPPFLAGS="-I/home/chenmengmeng/Program/openssls -I/home/chenmengmeng/Program/openssls/include" LDFLAGS="-L/home/chenmengmeng/Program/openssls/lib" LIBS="-ldl" ./configure --with-ssl=/home/chenmengmeng/Program/openssls --enable-static --disable-dict --disable-ftp --disable-imap --disable-ldap --disable-ldaps --disable-pop3 --disable-proxy --disable-rtsp --disable-smtp --disable-telnet --disable-tftp --disable-zlib --without-ca-bundle --without-gnutls --without-libidn --without-librtmp --without-libssh2 --without-nss --without-zlib
 
+
+
+
+//-------------------------Android系统属性SystemProperties在应用层的用法------
+http://blog.csdn.net/lilidejing/article/details/53288243
+
+
+//-------------------------android adb shell --------------------------------------
+adb shell monkey -p com.meigsmart.test741 --throttle 500 --ignore-crashes --ignore-timeouts -s 20 -v -v -v 1000
+
+top -m 10 -s cpu
+
+
+//------------------------linux 命令-------------------------------------
+
+find -iname "StorageNotification.java"
+
+mmm frameworks/base/ -B 2>&1|tee 1.log
+
+scp -r  /home/chenmengmeng/Program/cur 192.168.0.173:/home/chenmengmeng/Program/

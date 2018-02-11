@@ -37,6 +37,8 @@ import com.meigsmart.meigapp.blue.BluSetGeoFenceModel;
 import com.meigsmart.meigapp.blue.BluetoothConnListener;
 import com.meigsmart.meigapp.blue.BluetoothService;
 import com.meigsmart.meigapp.config.RequestCode;
+import com.meigsmart.meigapp.gps.Gps;
+import com.meigsmart.meigapp.gps.PositionUtil;
 import com.meigsmart.meigapp.log.LogUtil;
 import com.meigsmart.meigapp.model.DrawMapModel;
 import com.meigsmart.meigapp.util.ToastUtil;
@@ -311,10 +313,11 @@ public class BlueSetGeoFenceActivity extends BaseActivity implements View.OnClic
      * @param index
      */
     private void addData(LatLng latLng,String name,int radius,int index){
+        Gps gps = PositionUtil.bd09_To_Gps84(latLng.latitude, latLng.longitude);
         BluSetGeoFenceModel.GeoFence m = new BluSetGeoFenceModel.GeoFence();
         m.setName(name);
-        m.setLatitude(latLng.latitude);
-        m.setLongitude(latLng.longitude);
+        m.setLatitude(gps.getWgLat());
+        m.setLongitude(gps.getWgLon());
         m.setRadius(radius);
         m.setIndex(index);
         mList.add(index,m);
@@ -395,6 +398,11 @@ public class BlueSetGeoFenceActivity extends BaseActivity implements View.OnClic
                                 if (model.getGeo_fences()!=null && model.getGeo_fences().size()>0){
                                     mList.clear();
                                     mList = model.getGeo_fences();
+                                    for (BluSetGeoFenceModel.GeoFence m : mList){
+                                        Gps latLng = PositionUtil.gps_to_bd09(m.getLatitude(), m.getLongitude());
+                                        m.setLatitude(latLng.getWgLat());
+                                        m.setLongitude(latLng.getWgLon());
+                                    }
                                     setGeoFenceMap(mList);
                                 }else{
                                     ToastUtil.showBottomShort(getResources().getString(R.string.blue_geo_empty_data));

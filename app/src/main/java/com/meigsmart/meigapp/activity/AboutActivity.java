@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.meigsmart.meigapp.R;
 import com.meigsmart.meigapp.adapter.AboutAdapter;
 import com.meigsmart.meigapp.application.MyApplication;
+import com.meigsmart.meigapp.config.RequestCode;
 import com.meigsmart.meigapp.http.rxjava.observer.BaseObserver;
 import com.meigsmart.meigapp.http.service.HttpManager;
 import com.meigsmart.meigapp.model.UpdateModel;
@@ -125,7 +126,7 @@ public class AboutActivity extends BaseActivity implements View.OnClickListener 
      * 版本更新
      */
     private void updateApp(){
-        HttpManager.getApiService().updateApp("1")
+        HttpManager.getApiService().updateApp(RequestCode.APP_KEY,RequestCode.APP_SECRET,MyApplication.getInstance().getVersionCode())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new BaseObserver<UpdateModel>() {
