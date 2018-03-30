@@ -172,12 +172,12 @@ public class LinkManFragment extends BaseFragment implements View.OnClickListene
                                     manModel.setList(list);
                                     currList.add(new ExpandRecyclerViewAdapter.DataBean<>(manModel,manModel.getList()));
                                 }
-                                if (currList.size()>0){
-                                    if (mAdapter!=null){
-                                        mList.clear();
-                                        mList.addAll(currList);
-                                        mAdapter.setData(mList);
-                                    }
+                            }
+                            if (currList.size()>0){
+                                if (mAdapter!=null){
+                                    mList.clear();
+                                    mList.addAll(currList);
+                                    mAdapter.setData(mList);
                                 }
                             }
                         }else{
@@ -210,8 +210,8 @@ public class LinkManFragment extends BaseFragment implements View.OnClickListene
                     @Override
                     protected void onSuccess(DeviceListModel model) {
                         if (model.getResult().equals("200")){
+                            currList.clear();
                             if ( model.getData()!= null && model.getData().size()>0){
-                                currList.clear();
                                 LinkManModel manModel = new LinkManModel();
                                 manModel.setType(1);
                                 manModel.setName(getResources().getString(R.string.fragment_linkman_device_list));
@@ -227,6 +227,11 @@ public class LinkManFragment extends BaseFragment implements View.OnClickListene
                                 }
                                 manModel.setList(list);
                                 currList.add(new ExpandRecyclerViewAdapter.DataBean<>(manModel,manModel.getList()));
+                            }else{
+                                if (mAdapter!=null){
+                                    mList.clear();
+                                    mAdapter.setData(mList);
+                                }
                             }
                             getGroupList();
                         }else{

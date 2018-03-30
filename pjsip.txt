@@ -80,6 +80,13 @@ git checkout master.c3 切换分支到master.c3
 
 git status 
 
+//-----------
+git init
+git remote add origin https://github.com/m15115021148/testGit
+uname m...
+psw ..
+git push --set-upstream origin master
+
 vim 运用
 
 :wq 保存退出
@@ -143,6 +150,8 @@ adb pull /log.log D:\Log
 adb root
 adb remount
 adb push xx.apk system/app
+adb pull /storage/emulated/0/MeigsmartLog/appLog.log D:\Log
+adb disable-verity
 
 adb shell 查看序列号 cubic_configs.h
 cmmd getcfg ro.core.serial_num
@@ -222,7 +231,11 @@ top -m 10 -s cpu
 
 //------------------------linux 命令-------------------------------------
 
+adb reboot edl  烧程序
+
 find -iname "StorageNotification.java"
+
+grep -rns "android_start_title" ./
 
 mmm frameworks/base/ -B 2>&1|tee 1.log
 
