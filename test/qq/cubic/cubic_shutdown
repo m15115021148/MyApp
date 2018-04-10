@@ -1,0 +1,21 @@
+#! /bin/sh
+
+set -e
+
+case "$1" in
+  start)
+    ;;
+  stop)
+	cshut fs 10 # force power off in 10 seconds
+    ;;
+  restart)
+    $0 stop
+    $0 start
+    ;;
+  *)
+    echo "Usage cubic{ start | stop | restart }" >&2
+    exit 1
+    ;;
+esac
+
+exit 0

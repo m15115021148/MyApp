@@ -1,0 +1,86 @@
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+AC_PREREQ([2.68])
+AC_INIT(cubic,1.0,data_bu@meigsmart.com)
+AC_CONFIG_SRCDIR([cubic_defs.h])
+AC_CONFIG_SRCDIR([config.h.in])
+AC_CONFIG_HEADERS([config.h])
+AM_INIT_AUTOMAKE(cubic,1.0)
+
+# Checks for programs.
+AC_PROG_CXX
+AM_PROG_CC_C_O
+AC_PROG_AWK
+AC_PROG_CC
+AC_PROG_CPP
+AC_PROG_CXX
+AC_PROG_INSTALL
+AC_PROG_LN_S
+AC_PROG_MAKE_SET
+AC_PROG_LIBTOOL
+AC_PROG_RANLIB
+
+
+
+PKG_CHECK_MODULES([CURL], [libcurl])
+AC_SUBST([CURL_CFLAGS])
+AC_SUBST([CURL_LIBS])
+
+
+# Checks for header files.
+AC_CHECK_HEADERS([arpa/inet.h fcntl.h float.h inttypes.h limits.h netdb.h netinet/in.h stddef.h stdint.h stdlib.h string.h sys/file.h sys/ioctl.h sys/mount.h sys/param.h sys/socket.h sys/statfs.h sys/time.h syslog.h unistd.h utime.h  wchar.h])
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_HEADER_STDBOOL
+AC_C_INLINE
+AC_TYPE_INT8_T
+AC_TYPE_INT16_T
+AC_TYPE_INT32_T
+AC_TYPE_INT64_T
+AC_TYPE_UINT8_T
+AC_TYPE_UINT16_T
+AC_TYPE_UINT32_T
+AC_TYPE_UINT64_T
+AC_TYPE_MODE_T
+AC_TYPE_OFF_T
+AC_TYPE_PID_T
+AC_TYPE_SIZE_T
+AC_TYPE_SSIZE_T
+AC_CHECK_MEMBERS([struct stat.st_blksize])
+AC_CHECK_TYPES([ptrdiff_t])
+
+
+# Checks for library functions.
+AC_FUNC_ERROR_AT_LINE
+AC_FUNC_FORK
+AC_FUNC_MALLOC
+AC_FUNC_MMAP
+AC_FUNC_REALLOC
+AC_FUNC_STRERROR_R
+AC_FUNC_WAIT3
+AC_CHECK_FUNCS([alarm bzero clock_gettime fdatasync floor ftruncate gethostbyaddr gettimeofday inet_ntoa localtime_r strstr memmove memset mkdir munmap pow realpath rmdir select socket strchr strdup strerror strrchr strspn strtoul sqrt utime])
+AC_CHECK_HEADERS([termios.h])
+
+
+AC_CONFIG_FILES([Makefile
+                 app/Makefile
+                 app/batservice/Makefile
+                 app/bleinterface/Makefile
+                 app/core/Makefile
+                 app/demo/Makefile
+                 app/logservice/Makefile
+                 app/networkservice/Makefile
+                 app/sipservice/Makefile
+                 app/tools/Makefile
+                 app/ulocationservice/Makefile
+                 app/watchdog/Makefile
+                 app/otaservice/Makefile
+                 app/eventservice/Makefile
+                 app/lightservice/Makefile
+                 app/soundservice/Makefile
+                 app/vmservice/Makefile
+                 app/powerservice/Makefile
+                 framework/Makefile
+                 util/Makefile])
+AC_OUTPUT

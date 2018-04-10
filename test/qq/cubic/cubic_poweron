@@ -1,0 +1,22 @@
+#! /bin/sh
+
+set -e
+
+case "$1" in
+  start)
+    echo "start reboot counter in 60s"
+	cshut r 60
+    ;;
+  stop)
+    ;;
+  restart)
+    $0 stop
+    $0 start
+    ;;
+  *)
+    echo "Usage cubic{ start | stop | restart }" >&2
+    exit 1
+    ;;
+esac
+
+exit 0

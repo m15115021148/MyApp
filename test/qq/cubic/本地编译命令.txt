@@ -1,0 +1,5 @@
+aclocal：	生产M4宏
+autoconf：	生成configure。
+automake：	生成各个目录的Makefile.in
+./configure 	生成Makefile
+make		

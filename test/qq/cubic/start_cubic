@@ -1,0 +1,45 @@
+#! /bin/sh
+
+set -e
+
+case "$1" in
+  start)
+    killall -9 cshut || echo "Free to start Cubic"
+    if [ ! -e /etc/cfg/ro ]; then
+        tar -zxvf /etc/default_config_systeminfo.tar.gz -C /etc/  || echo "Fail to release system config"
+        sync
+    fi
+    if [ ! -e /etc/cfg/rw ]; then
+        tar -zxvf /etc/default_config.tar.gz -C /etc/ || echo "Fail to release default config"
+        sync
+    fi
+    echo -n "Starting cubic: "
+    start-stop-daemon -S -b -a cubic-watchdog
+    echo 1 > /sys/class/input/event2/device/enable || echo "Fail to enable event 2"
+    echo 1 > /sys/class/input/event4/device/enable || echo "Fail to enable event 4"
+    echo 12 > /sys/class/input/event2/device/acc_range  || echo "Fail to set range config on event 2"
+    if [ ! -e /data/boot_count ]; then
+        echo 1 > /data/boot_count
+	elif [ $(cat /data/boot_count) -gt 0 ]; then
+		expr $(cat /data/boot_count) + 1 > /data/boot_count
+    else
+		echo 1 > /data/boot_count
+    fi
+    echo "done"
+    ;;
+  stop)
+    echo -n "Stopping cubic: "
+    start-stop-daemon -K -n cubic-watchdog
+    echo "done"
+    ;;
+  restart)
+    $0 stop
+    $0 start
+    ;;
+  *)
+    echo "Usage cubic{ start | stop | restart }" >&2
+    exit 1
+    ;;
+esac
+
+exit 0
