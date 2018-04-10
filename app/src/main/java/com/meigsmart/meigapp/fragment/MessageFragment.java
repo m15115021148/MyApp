@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 
 import com.meigsmart.meigapp.R;
 import com.meigsmart.meigapp.activity.MapActivity;
+import com.meigsmart.meigapp.activity.MapGaoDeActivity;
+import com.meigsmart.meigapp.activity.MapGoogleActivity;
 import com.meigsmart.meigapp.activity.MessageChatActivity;
 import com.meigsmart.meigapp.adapter.ExpandRecyclerViewAdapter;
 import com.meigsmart.meigapp.adapter.FragmentMessageAdapter;
@@ -17,6 +19,7 @@ import com.meigsmart.meigapp.http.service.HttpManager;
 import com.meigsmart.meigapp.model.GroupListDataModel;
 import com.meigsmart.meigapp.model.GroupListModel;
 import com.meigsmart.meigapp.model.MembersModel;
+import com.meigsmart.meigapp.util.PreferencesUtil;
 import com.meigsmart.meigapp.util.ToastUtil;
 
 import java.net.ConnectException;
@@ -137,7 +140,12 @@ public class MessageFragment extends BaseFragment implements FragmentMessageAdap
     @Override
     public void onSubItemClick(int groupItemIndex, int subItemIndex) {
         if (mList.size() > 0 && mList.get(groupItemIndex).getSubItems().get(subItemIndex).getType().equals("0")) {
-            Intent intent = new Intent(mContext, MapActivity.class);
+            Intent intent = new Intent();
+            if ("3".equals(PreferencesUtil.getStringData(mContext,"mapType"))){
+                intent.setClass(mContext,MapGoogleActivity.class);
+            }else{
+                intent.setClass(mContext,MapActivity.class);
+            }
             intent.putExtra("uuid", mList.get(groupItemIndex).getSubItems().get(subItemIndex).getClient_uuid());
             intent.putExtra("sipUserName", mList.get(groupItemIndex).getSubItems().get(subItemIndex).getSipUsername());
             intent.putExtra("type", 0);

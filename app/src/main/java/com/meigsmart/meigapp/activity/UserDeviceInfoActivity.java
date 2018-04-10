@@ -200,33 +200,7 @@ public class UserDeviceInfoActivity extends BaseActivity implements View.OnClick
             mContext.finish();
         }
         if (view == mRightLayout) {// 绑定
-            LogUtil.v("result","deviceSerial:"+deviceSerial);
-            String msg = "";
-            if (isBindFirst) {
-                msg = getResources().getString(R.string.user_info_device_psw);
-            } else {
-                msg = getResources().getString(R.string.user_info_checkout_psw);
-            }
-            View dialog = DialogUtil.customInputDialog(mContext, msg, getResources().getString(R.string.sure), getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    if (TextUtils.isEmpty(mBindPsw.getText().toString().trim())) {
-                        ToastUtil.showBottomShort(getResources().getString(R.string.user_info_psw_no));
-                        if (!MyApplication.isGuide && guideView!=null)guideView.show();
-                        return;
-                    }
-                    MyApplication.bindDevicePsw = mBindPsw.getText().toString();
-                    bindDevice(deviceSerial);
-                }
-            }, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
-                    if (!MyApplication.isGuide && guideView!=null)guideView.show();
-                }
-            });
-            mBindPsw = (EditText) dialog.findViewById(R.id.dialog_et_txt);
-            mBindPsw.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            bindDevice(deviceSerial);
         }
         if (view == mLayoutList.get(0)){//
             if (mInfoModel==null){
@@ -244,7 +218,12 @@ public class UserDeviceInfoActivity extends BaseActivity implements View.OnClick
             if (mInfoModel==null){
                 return;
             }
-            Intent intent = new Intent(mContext,MapActivity.class);
+            Intent intent = new Intent();
+            if ("3".equals(PreferencesUtil.getStringData(mContext,"mapType"))){
+                intent.setClass(mContext,MapGoogleActivity.class);
+            }else{
+                intent.setClass(mContext,MapActivity.class);
+            }
             intent.putExtra("uuid",mInfoModel.getData().getUuid());
             intent.putExtra("sipUserName",mInfoModel.getData().getSipUsername());
             intent.putExtra("type",0);

@@ -9,11 +9,13 @@
         <item>用户信息</item>
         <item>系统消息</item>
         <item>关于</item>
+        <item>设置</item>
     </string-array>
 
     <string-array name="SystemSetData">
         <item>群组邀请</item>
         <item>获取设备状态</item>
+        <item>设置上报间隔</item>
         <item>获取Log</item>
         <item>获取APN设置</item>
         <item>获取门限制</item>
@@ -44,7 +46,7 @@
     </string-array>
 
     <string name="guide_first_hint">第一步：点击绑定设备</string>
-    <string name="guide_second_hint">第二步：点击绑定，输入密码</string>
+    <string name="guide_second_hint">第二步：点击绑定</string>
     <string name="guide_jump_over">跳过</string>
 
     <string name="sure">确定</string>
@@ -167,6 +169,8 @@
     <string name="system_set_server_url_title">设置服务器Url</string>
     <string name="system_set_server_url_success">设置Url成功</string>
     <string name="system_set_server_url_wrong">设置Url失败</string>
+    <string name="system_set_interval_time">设置上报间隔（单位分钟）</string>
+    <string name="system_set_interval_number">请输入非零整数</string>
 
     <!--AboutActivity-->
     <string name="about_title">关于</string>
@@ -374,5 +378,12 @@
     <string name="blue_upgrade_upgrade">升级</string>
     <string name="blue_upgrade_success">指令发送成功</string>
     <string name="blue_connection_exception">连接异常</string>
+
+    <!--SettingsActivity-->
+    <string name="settings_title">设置</string>
+    <string name="settings_layout_select_type">选择地图类型</string>
+    <string name="settings_layout_baidu">百度</string>
+    <string name="settings_layout_gaode">高德</string>
+    <string name="settings_layout_google">Google</string>
 
 </resources>

@@ -13,14 +13,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
-import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.model.LatLng;
 import com.meigsmart.meigapp.R;
 import com.meigsmart.meigapp.application.MyApplication;
-import com.meigsmart.meigapp.gps.Gps;
 import com.meigsmart.meigapp.gps.MapModel;
 import com.meigsmart.meigapp.gps.Point;
-import com.meigsmart.meigapp.gps.PositionUtil;
 import com.meigsmart.meigapp.gps.SmoothTrack;
 import com.meigsmart.meigapp.http.rxjava.observable.DialogTransformer;
 import com.meigsmart.meigapp.http.rxjava.observer.BaseObserver;
@@ -28,7 +25,6 @@ import com.meigsmart.meigapp.http.service.HttpManager;
 import com.meigsmart.meigapp.model.DeviceTrackListModel;
 import com.meigsmart.meigapp.model.GroupMembersTrackModel;
 import com.meigsmart.meigapp.util.DateUtil;
-import com.meigsmart.meigapp.util.MapUtil;
 import com.meigsmart.meigapp.util.ToastUtil;
 import com.meigsmart.meigapp.view.CustomCalendar;
 import com.meigsmart.siplibs.SipServiceCommand;
@@ -49,15 +45,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.HttpException;
 
-public class MapActivity extends BaseActivity implements View.OnClickListener {
-    private MapActivity mContext;//本类
+public class MapGaoDeActivity extends BaseActivity implements View.OnClickListener {
+    private MapGaoDeActivity mContext;//本类
     @BindView(R.id.back)
     public LinearLayout mBack;//返回上一层
     @BindView(R.id.title)
     public TextView mTitle;//标题
-    @BindView(R.id.bmapView)
-    public MapView mapView;//mapview
-    private MapUtil mapUtil;//地图工具类
     private int type = 0;//进入类型
     private TimerTask timerTask;//定时任务
     private Timer timer;//定时器
@@ -76,11 +69,12 @@ public class MapActivity extends BaseActivity implements View.OnClickListener {
     public LinearLayout mRight;
     private final int SEND_TRACK = 0x001;
     private final int SEND_MEMBER_TRACK = 0x002;
-
+    //@BindView(R.id.bmapView)
+    //public MapView mapView;//mapview
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_map;
+        return R.layout.activity_map_gao_de;
     }
 
     @Override
@@ -91,9 +85,7 @@ public class MapActivity extends BaseActivity implements View.OnClickListener {
         mLeft.setOnClickListener(this);
         mRight.setOnClickListener(this);
         mTitle.setText(getResources().getString(R.string.map_title));
-        mapUtil = new MapUtil(this, mapView);
-        // 隐藏缩放控件
-        mapUtil.hidezoomView();
+
         type = getIntent().getIntExtra("type", 0);
 
         timer = new Timer();
@@ -114,7 +106,7 @@ public class MapActivity extends BaseActivity implements View.OnClickListener {
                 @Override
                 public void run() {
                     if (!TextUtils.isEmpty(sipUserName))
-                        SipServiceCommand.sendMessage(mContext,MyApplication.sipAccount.getIdUri(),reqJson,MyApplication.sipAccount.getRemoteUri(sipUserName));
+                        SipServiceCommand.sendMessage(mContext, MyApplication.sipAccount.getIdUri(),reqJson,MyApplication.sipAccount.getRemoteUri(sipUserName));
                 }
             };
 
@@ -124,13 +116,11 @@ public class MapActivity extends BaseActivity implements View.OnClickListener {
             mLayout.setVisibility(View.GONE);
             mHandler.sendEmptyMessage(SEND_MEMBER_TRACK);
         }
-
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mapUtil.clear();
         if (timerTask != null) timerTask.cancel();
         if (timer != null) timer.cancel();
         if (mHandler!=null){
@@ -213,7 +203,6 @@ public class MapActivity extends BaseActivity implements View.OnClickListener {
             }
         }
     };
-
     /**
      * 获取每个群成员的最近一个位置的列表
      */
@@ -237,6 +226,7 @@ public class MapActivity extends BaseActivity implements View.OnClickListener {
 
                     @Override
                     protected void onSuccess(GroupMembersTrackModel model) {
+                        /*
                         if (model.getResult().equals("200")) {
                             if (model.getData() != null && model.getData().size() > 0) {
                                 List<GroupMembersTrackModel.MembersTrackModel> list = model.getData();
@@ -258,6 +248,7 @@ public class MapActivity extends BaseActivity implements View.OnClickListener {
                         } else {
                             ToastUtil.showBottomShort(model.getReason());
                         }
+                        */
                     }
                 });
     }
@@ -289,10 +280,13 @@ public class MapActivity extends BaseActivity implements View.OnClickListener {
 
                     @Override
                     protected void onSuccess(DeviceTrackListModel model) {
+                        /*
                         if (model.getResult().equals("200")) {
+
                             List<LatLng> list = new ArrayList<>();
                             List<Point> pointList = new ArrayList<>();//轨迹点纠偏数据;
                             if (model.getData() != null && model.getData().size() > 0) {
+
                                 try {
                                     for (DeviceTrackListModel.DeviceTrackModel m : model.getData()) {
                                         if (!mapUtil.isZeroPoint(Double.parseDouble(m.getLatitude()), Double.parseDouble(m.getLongitude()))) {
@@ -320,8 +314,8 @@ public class MapActivity extends BaseActivity implements View.OnClickListener {
                                     List<Point> points2 = SmoothTrack.doSmooth(points1, 0.1, 1);
 
                                     for (Point p : points2) {
-                                        Gps gps = PositionUtil.gps_to_bd09(p.getLat(), p.getLng());
-                                        list.add(new LatLng(gps.getWgLat(),gps.getWgLon()));
+                                        LatLng latLng = new LatLng(p.getLat(), p.getLng());
+                                        list.add(mapUtil.changeBaiduByGPS(latLng));
                                     }
                                 } catch (Exception e) {
                                     e.printStackTrace();
@@ -346,6 +340,7 @@ public class MapActivity extends BaseActivity implements View.OnClickListener {
                             mapUtil.updateStatus(new LatLng(MyApplication.lat,MyApplication.lng),false);
                             ToastUtil.showBottomShort(model.getReason());
                         }
+                        */
                     }
                 });
     }
@@ -354,7 +349,7 @@ public class MapActivity extends BaseActivity implements View.OnClickListener {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1001) {
             if (data != null) {
-                mapUtil.clear();
+                //mapUtil.clear();
                 mStartTime = data.getStringExtra("startTime");
                 mEndTime = data.getStringExtra("endTime");
 
@@ -363,4 +358,5 @@ public class MapActivity extends BaseActivity implements View.OnClickListener {
         }
 
     }
+
 }

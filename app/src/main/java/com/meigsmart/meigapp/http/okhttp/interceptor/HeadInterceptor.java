@@ -20,7 +20,6 @@ public class HeadInterceptor implements Interceptor {
                 .newBuilder()
                 .addHeader("client_uuid", MyApplication.clientsModel==null?"":MyApplication.clientsModel.getClient_uuid())
                 .addHeader("api_password", MyApplication.clientsModel==null?"":MyApplication.clientsModel.getApi_password())
-                .addHeader("password",MyApplication.bindDevicePsw)
                 .build();
         return chain.proceed(request);
     }

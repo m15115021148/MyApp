@@ -1,11 +1,20 @@
 package com.meigsmart.meigapp.activity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.location.Location;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.LinearLayout;
@@ -15,6 +24,17 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.model.LatLng;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CircleOptions;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.meigsmart.meigapp.R;
 import com.meigsmart.meigapp.application.MyApplication;
 import com.meigsmart.meigapp.gps.Gps;
@@ -29,35 +49,42 @@ import com.meigsmart.meigapp.model.DeviceTrackListModel;
 import com.meigsmart.meigapp.model.GroupMembersTrackModel;
 import com.meigsmart.meigapp.util.DateUtil;
 import com.meigsmart.meigapp.util.MapUtil;
+import com.meigsmart.meigapp.util.PermissionUtils;
 import com.meigsmart.meigapp.util.ToastUtil;
 import com.meigsmart.meigapp.view.CustomCalendar;
 import com.meigsmart.siplibs.SipServiceCommand;
 
 import java.net.ConnectException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Spliterator;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.function.Consumer;
 
 import butterknife.BindView;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.HttpException;
 
-public class MapActivity extends BaseActivity implements View.OnClickListener {
-    private MapActivity mContext;//本类
+public class MapGoogleActivity extends BaseActivity implements View.OnClickListener ,
+            GoogleMap.OnMyLocationButtonClickListener,
+            GoogleMap.OnMyLocationClickListener,
+            OnMapReadyCallback ,
+            GoogleApiClient.ConnectionCallbacks,
+            GoogleApiClient.OnConnectionFailedListener{
+    private MapGoogleActivity mContext;//本类
     @BindView(R.id.back)
     public LinearLayout mBack;//返回上一层
     @BindView(R.id.title)
     public TextView mTitle;//标题
-    @BindView(R.id.bmapView)
-    public MapView mapView;//mapview
-    private MapUtil mapUtil;//地图工具类
     private int type = 0;//进入类型
     private TimerTask timerTask;//定时任务
     private Timer timer;//定时器
@@ -76,11 +103,11 @@ public class MapActivity extends BaseActivity implements View.OnClickListener {
     public LinearLayout mRight;
     private final int SEND_TRACK = 0x001;
     private final int SEND_MEMBER_TRACK = 0x002;
-
+    private GoogleMap mMap;
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_map;
+        return R.layout.activity_map_google;
     }
 
     @Override
@@ -91,9 +118,12 @@ public class MapActivity extends BaseActivity implements View.OnClickListener {
         mLeft.setOnClickListener(this);
         mRight.setOnClickListener(this);
         mTitle.setText(getResources().getString(R.string.map_title));
-        mapUtil = new MapUtil(this, mapView);
-        // 隐藏缩放控件
-        mapUtil.hidezoomView();
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.bmapView);
+
+        mapFragment.getMapAsync(this);
+
         type = getIntent().getIntExtra("type", 0);
 
         timer = new Timer();
@@ -114,7 +144,7 @@ public class MapActivity extends BaseActivity implements View.OnClickListener {
                 @Override
                 public void run() {
                     if (!TextUtils.isEmpty(sipUserName))
-                        SipServiceCommand.sendMessage(mContext,MyApplication.sipAccount.getIdUri(),reqJson,MyApplication.sipAccount.getRemoteUri(sipUserName));
+                        SipServiceCommand.sendMessage(mContext, MyApplication.sipAccount.getIdUri(),reqJson,MyApplication.sipAccount.getRemoteUri(sipUserName));
                 }
             };
 
@@ -124,13 +154,11 @@ public class MapActivity extends BaseActivity implements View.OnClickListener {
             mLayout.setVisibility(View.GONE);
             mHandler.sendEmptyMessage(SEND_MEMBER_TRACK);
         }
-
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mapUtil.clear();
         if (timerTask != null) timerTask.cancel();
         if (timer != null) timer.cancel();
         if (mHandler!=null){
@@ -242,18 +270,8 @@ public class MapActivity extends BaseActivity implements View.OnClickListener {
                                 List<GroupMembersTrackModel.MembersTrackModel> list = model.getData();
                                 List<MapModel> points = new ArrayList<>();
                                 for (GroupMembersTrackModel.MembersTrackModel m : list) {
-                                    if (!mapUtil.isZeroPoint(Double.parseDouble(m.getLatitude()), Double.parseDouble(m.getLongitude()))) {
-                                        MapModel map = new MapModel();
-                                        map.setName(m.getDeviceName());
-                                        map.setLat(m.getLatitude());
-                                        map.setLng(m.getLongitude());
-                                        map.setAltitude(m.getAltitude());
-                                        map.setTime(DateUtil.formatDateTime(Long.parseLong(m.getTrackTime())));
-                                        map.setOnline(m.getOnline() == null ? "1" : m.getOnline());
-                                        points.add(map);
-                                    }
+
                                 }
-                                mapUtil.drawPoint(points);
                             }
                         } else {
                             ToastUtil.showBottomShort(model.getReason());
@@ -295,7 +313,7 @@ public class MapActivity extends BaseActivity implements View.OnClickListener {
                             if (model.getData() != null && model.getData().size() > 0) {
                                 try {
                                     for (DeviceTrackListModel.DeviceTrackModel m : model.getData()) {
-                                        if (!mapUtil.isZeroPoint(Double.parseDouble(m.getLatitude()), Double.parseDouble(m.getLongitude()))) {
+                                        if (!isZeroPoint(Double.parseDouble(m.getLatitude()), Double.parseDouble(m.getLongitude()))) {
                                             Point p = new Point();
                                             p.setLat(Double.parseDouble(m.getLatitude()));
                                             p.setLng(Double.parseDouble(m.getLongitude()));
@@ -320,41 +338,55 @@ public class MapActivity extends BaseActivity implements View.OnClickListener {
                                     List<Point> points2 = SmoothTrack.doSmooth(points1, 0.1, 1);
 
                                     for (Point p : points2) {
-                                        Gps gps = PositionUtil.gps_to_bd09(p.getLat(), p.getLng());
-                                        list.add(new LatLng(gps.getWgLat(),gps.getWgLon()));
+                                       // Gps gps = PositionUtil.gps_to_bd09(p.getLat(), p.getLng());
+                                        list.add(new LatLng(p.getLat(),p.getLng()));
                                     }
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 } finally {
                                     if (list.size() > 0) {
-                                        mapUtil.drawHistoryTrack(list);
+                                        ArrayList<com.google.android.gms.maps.model.LatLng> l = new ArrayList<>();
+                                        for (int i=0;i<list.size();i++){
+                                            l.add(new com.google.android.gms.maps.model.LatLng(list.get(i).latitude,list.get(i).longitude));
+                                        }
+
+                                        mMap.addPolyline(
+                                                new PolylineOptions()
+                                                        .addAll(new MyIte(l))
+                                                        .width(10)
+                                                        .geodesic(true)
+                                                        .color(Color.RED)
+                                        );
+
                                     } else {
-                                        mapUtil.clearHistory();
-                                        mapUtil.updateStatus(new LatLng(MyApplication.lat,MyApplication.lng),false);
                                         ToastUtil.showBottomShort(getResources().getString(R.string.main_no_track));
                                     }
 
                                 }
                             } else {
-                                mapUtil.clearHistory();
-                                mapUtil.updateStatus(new LatLng(MyApplication.lat,MyApplication.lng),false);
                                 ToastUtil.showBottomShort(getResources().getString(R.string.main_no_track));
                             }
 
                         } else {
-                            mapUtil.clearHistory();
-                            mapUtil.updateStatus(new LatLng(MyApplication.lat,MyApplication.lng),false);
                             ToastUtil.showBottomShort(model.getReason());
                         }
                     }
                 });
     }
 
+
+
+    public boolean isZeroPoint(double lat,double lng){
+        if (lat!=5e-324 && lng!=5e-324 &&lat!=4.9E-324 && lng!=4.9E-324 && lat!=0 && lng!=0 && lat!=-3.067393572659021E-8 && lng!=2.890871144776878E-9){
+            return false;
+        }
+        return true;
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1001) {
             if (data != null) {
-                mapUtil.clear();
                 mStartTime = data.getStringExtra("startTime");
                 mEndTime = data.getStringExtra("endTime");
 
@@ -362,5 +394,66 @@ public class MapActivity extends BaseActivity implements View.OnClickListener {
             }
         }
 
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        mMap.setOnMyLocationButtonClickListener(this);
+        mMap.setOnMyLocationClickListener(this);
+        enableMyLocation();
+//        CameraUpdate zoom = CameraUpdateFactory.zoomTo(13);
+//        googleMap.animateCamera(zoom);
+
+    }
+
+    private void enableMyLocation() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            PermissionUtils.requestPermission(this, 1,
+                    Manifest.permission.ACCESS_FINE_LOCATION, true);
+        } else if (mMap != null) {
+            mMap.setMyLocationEnabled(true);
+        }
+    }
+
+    @Override
+    public boolean onMyLocationButtonClick() {
+        return false;
+    }
+
+    @Override
+    public void onMyLocationClick(@NonNull Location location) {
+
+    }
+
+    @Override
+    public void onConnected(@Nullable Bundle bundle) {
+
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
+
+    public class MyIte implements Iterable{
+        private ArrayList<com.google.android.gms.maps.model.LatLng> ml ;
+
+        public MyIte(ArrayList<com.google.android.gms.maps.model.LatLng> list){
+            ml = list;
+        }
+
+        @NonNull
+        @Override
+        public Iterator iterator() {
+            return ml.iterator();
+        }
     }
 }

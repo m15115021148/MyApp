@@ -28,6 +28,7 @@ import com.meigsmart.meigapp.model.MembersModel;
 import com.meigsmart.meigapp.scan.QRActivity;
 import com.meigsmart.meigapp.util.DateUtil;
 import com.meigsmart.meigapp.util.DialogUtil;
+import com.meigsmart.meigapp.util.PreferencesUtil;
 import com.meigsmart.meigapp.util.ToastUtil;
 
 import java.net.ConnectException;

@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 
 import com.meigsmart.meigapp.R;
@@ -20,7 +21,7 @@ import butterknife.Unbinder;
  * 基本的activity 配置常量
  * Created by chenemng on 2017/9/1.
  */
-public abstract class BaseActivity extends FragmentActivity {
+public abstract class BaseActivity extends AppCompatActivity {
     protected static final String TAG_ESC_ACTIVITY = "com.broader.esc";//内容描述 退出activity时 发送的广播信号
     private MyBroaderEsc receiver;//广播
     private Unbinder butterKnife;//取消绑定

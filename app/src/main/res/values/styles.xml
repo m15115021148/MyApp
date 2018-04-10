@@ -192,4 +192,14 @@
         <item name="android:windowCloseOnTouchOutside">false</item>
     </style>
 
+    <style name="SettingsTextViewStyle">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/_28px_in720p</item>
+        <item name="android:textColor">@drawable/settings_choice_color_bg</item>
+        <item name="android:background">@drawable/settings_choice_bg</item>
+    </style>
+
 </resources>

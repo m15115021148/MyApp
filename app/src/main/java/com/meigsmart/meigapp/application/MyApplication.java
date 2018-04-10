@@ -43,7 +43,6 @@ public class MyApplication extends Application {
     public static double lng = 0;// 经度
     public static ClientsModel clientsModel;//实体类
     public static String diverId = "000000000000000";//设备id
-    public static String bindDevicePsw = "";//设备绑定密码
     public static String userName = "";//用户名
     public CharDataDao mDb;//数据库
     public static boolean isPush = true;//是否有推送

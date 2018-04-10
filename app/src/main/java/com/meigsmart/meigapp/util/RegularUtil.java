@@ -73,4 +73,16 @@ public class RegularUtil {
 		return idCard.matches(regx) || idCard.matches(reg1) || idCard.matches(regex);
 	}
 
+	/**
+	 *
+	 * @param idCard
+	 * @return
+	 */
+	public static boolean isNumber(String idCard){
+		Pattern p = Pattern
+				.compile("^[0-9]+$");
+		Matcher m = p.matcher(idCard);
+		return m.matches();
+	}
+
 }

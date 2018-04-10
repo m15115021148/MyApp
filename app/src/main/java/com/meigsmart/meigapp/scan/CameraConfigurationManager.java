@@ -198,7 +198,7 @@ final class CameraConfigurationManager {
     } else {
       parameters.set("flash-value", 2);
     }
-    // This is the standard setting to turn the flash off that all devices should honor.
+    // This is the standard setting_choice_normal to turn the flash off that all devices should honor.
     parameters.set("flash-mode", "off");
   }
 

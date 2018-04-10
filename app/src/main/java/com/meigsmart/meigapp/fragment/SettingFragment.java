@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.meigsmart.meigapp.R;
 import com.meigsmart.meigapp.activity.AboutActivity;
+import com.meigsmart.meigapp.activity.SettingsActivity;
 import com.meigsmart.meigapp.activity.SystemMessageActivity;
 import com.meigsmart.meigapp.activity.UserAppInfoActivity;
 import com.meigsmart.meigapp.adapter.MainLeftListViewAdapter;
@@ -41,7 +42,7 @@ import retrofit2.HttpException;
 
 
 /**
- * setting
+ * setting_choice_normal
  * Created by chenMeng on 2017/9/7.
  */
 
@@ -56,7 +57,7 @@ public class SettingFragment extends BaseFragment implements View.OnClickListene
     @BindView(R.id.listView)
     public ListView mLeftLv;//左侧布局listview控件
     @BindArray(R.array.MainLeftData) String[] data;//左侧标题数据
-    private static final int[] resImg = {R.drawable.title_group,R.drawable.title_userinfo,R.drawable.title_set,R.drawable.title_about};
+    private static final int[] resImg = {R.drawable.title_group,R.drawable.title_userinfo,R.drawable.title_set,R.drawable.title_about,R.drawable.my_40};
 
     @Override
     protected int setContentView() {
@@ -108,6 +109,10 @@ public class SettingFragment extends BaseFragment implements View.OnClickListene
                     case 2:
                         Intent about = new Intent(mContext,AboutActivity.class);
                         startActivity(about);
+                        break;
+                    case 3:
+                        Intent set = new Intent(mContext,SettingsActivity.class);
+                        startActivity(set);
                         break;
                     default:
                         break;

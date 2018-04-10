@@ -9,11 +9,13 @@
         <item>User Info</item>
         <item>System Message</item>
         <item>About</item>
+        <item>Settings</item>
     </string-array>
 
     <string-array name="SystemSetData">
         <item>Group Invitation</item>
         <item>Get Device Status</item>
+        <item>Set Intervals</item>
         <item>Get Log</item>
         <item>Get APN Settings</item>
         <item>Get Thresholds</item>
@@ -44,7 +46,7 @@
     </string-array>
 
     <string name="guide_first_hint">Step 1: click on the binding device</string>
-    <string name="guide_second_hint">Step 2: click the binding and enter the password</string>
+    <string name="guide_second_hint">Step 2: click the binding </string>
     <string name="guide_jump_over">Skip</string>
 
     <string name="sure">OK</string>
@@ -166,6 +168,8 @@
     <string name="system_set_server_url_title">Setting the server Url</string>
     <string name="system_set_server_url_success">Setting Url success</string>
     <string name="system_set_server_url_wrong">Setting Url failure</string>
+    <string name="system_set_interval_time">Set report interval (unit minutes)</string>
+    <string name="system_set_interval_number">Please enter non-zero integer</string>
 
     <!--AboutActivity-->
     <string name="about_title">About</string>
@@ -373,5 +377,17 @@
     <string name="blue_upgrade_upgrade">Upgrade</string>
     <string name="blue_upgrade_success">Command sends success</string>
     <string name="blue_connection_exception">Connection exception</string>
+
+    <!--SettingsActivity-->
+    <string name="settings_title">Settings</string>
+    <string name="settings_layout_select_type">Select map type</string>
+    <string name="settings_layout_baidu">Baidu</string>
+    <string name="settings_layout_gaode">AutoNavi</string>
+    <string name="settings_layout_google">Google</string>
+
+    <!--    Permissions    -->
+    <string name="permission_rationale_location">Access to the location service is required to demonstrate the \'my location\' feature, which shows your current location on the map.</string>
+    <string name="location_permission_denied">This sample requires location permission to enable the \'my location\' layer. Please try again and grant access to use the location.\nIf the permission has been permanently denied, it can be enabled from the System Settings &gt; Apps &gt; \'Google Maps API Demos\'.</string>
+    <string name="permission_required_toast">Location permission is required for this demo.</string>
 
 </resources>

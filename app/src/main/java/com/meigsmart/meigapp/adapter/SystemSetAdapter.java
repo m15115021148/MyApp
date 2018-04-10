@@ -19,7 +19,7 @@ import butterknife.BindView;
 
 public class SystemSetAdapter extends BaseAdapter<TypeModel> {
     private int[] res = {
-            R.drawable.blue_group_invitation,R.drawable.blue_get_device_stat,R.drawable.blue_get_log,R.drawable.blue_get_apn,
+            R.drawable.blue_group_invitation,R.drawable.blue_get_device_stat,R.drawable.blue_get_log,R.drawable.blue_get_log,R.drawable.blue_get_apn,
             R.drawable.blue_get_thresholds,R.drawable.blue_get_geo_fence,R.drawable.blue_set_sip,R.drawable.blue_set_server_url,
             R.drawable.blue_set_apn,R.drawable.blue_set_thresholds,R.drawable.blue_set_geo_fence,R.drawable.blue_set_pin,
             R.drawable.blue_pin_unlock,R.drawable.blue_puk_unlock,R.drawable.blue_upgrade

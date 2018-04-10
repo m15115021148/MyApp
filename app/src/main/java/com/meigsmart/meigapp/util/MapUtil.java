@@ -24,13 +24,10 @@ import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.Overlay;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.map.PolygonOptions;
-import com.baidu.mapapi.map.Polyline;
 import com.baidu.mapapi.map.PolylineOptions;
 import com.baidu.mapapi.map.Stroke;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
-import com.baidu.mapapi.utils.CoordinateConverter;
-import com.baidu.mapapi.utils.DistanceUtil;
 import com.meigsmart.meigapp.R;
 import com.meigsmart.meigapp.application.MyApplication;
 import com.meigsmart.meigapp.gps.Distance;
@@ -235,38 +232,6 @@ public class MapUtil {
             return false;
         }
         return true;
-    }
-
-    /**
-     * 别的地图转百度坐标
-     *
-     * @param ll
-     * @return
-     */
-    public LatLng changeBaidu(LatLng ll) {
-        // 将google地图、soso地图、aliyun地图、mapabc地图和amap地图// 所用坐标转换成百度坐标
-        CoordinateConverter converter = new CoordinateConverter();
-        converter.from(CoordinateConverter.CoordType.COMMON);
-        // sourceLatLng待转换坐标
-        converter.coord(ll);
-        LatLng desLatLng = converter.convert();
-        LogUtil.i("TAG", "latitude:" + desLatLng.latitude + "longitude:" + desLatLng.longitude);
-        return desLatLng;
-    }
-
-    /**
-     * 原始GPS转百度地图
-     * @param ll
-     * @return
-     */
-    public LatLng changeBaiduByGPS(LatLng ll) {
-        // 将GPS设备采集的原始GPS坐标转换成百度坐标
-        CoordinateConverter converter = new CoordinateConverter();
-        converter.from(CoordinateConverter.CoordType.GPS);
-        // sourceLatLng待转换坐标
-        converter.coord(ll);
-        LatLng desLatLng = converter.convert();
-        return desLatLng;
     }
 
     /**

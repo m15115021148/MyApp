@@ -662,6 +662,7 @@ public class SipService extends BackgroundService {
             UaConfig ua_cfg = epConfig.getUaConfig();
             ua_cfg.setUserAgent("Pjsua2 Android " + mEndpoint.libVersion().getFull());
             StringVector stun_servers = new StringVector();
+            //stun.freeswitch.org:3478
             stun_servers.add("120.24.77.212:3478");
             ua_cfg.setStunServer(stun_servers);
 
