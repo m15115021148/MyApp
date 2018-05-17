@@ -240,3 +240,6 @@ grep -rns "android_start_title" ./
 mmm frameworks/base/ -B 2>&1|tee 1.log
 
 scp -r  /home/chenmengmeng/Program/cur 192.168.0.173:/home/chenmengmeng/Program/
+
+//服务器拷贝  opensips.cfg 本机目录  目标目录chenmengmeng@192.168.0.173
+scp opensips.cfg chenmengmeng@192.168.0.173:/home/chenmengmeng
